@@ -28,6 +28,7 @@
             android:layout_width="wrap_content"
             android:layout_height="18dp"
             android:layout_alignParentEnd="true"
+            android:fontFamily="@font/jfflat"
             android:background="@drawable/cart_yellow_circle"
             android:padding="1dp"
             android:textSize="12sp"
@@ -39,6 +40,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_centerInParent="true"
+            android:fontFamily="@font/jfflat"
             android:textColor="@color/first_font" />
 
         <ImageView
