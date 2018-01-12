@@ -5,50 +5,50 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:fillViewport="true"
     android:layoutDirection="rtl"
     android:orientation="vertical"
     android:textDirection="rtl"
-    android:fillViewport="true"
-    tools:context="ahmed.bassiouny.fares.view.activities.ShowProduct">
+    tools:context="ahmed.bassiouny.fares.view.activities.ShowProductActivity">
 
     <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent">
 
         <include
-            layout="@layout/my_toolbar"
             android:id="@+id/my_toolbar"
+            layout="@layout/my_toolbar"
             android:layout_width="match_parent"
             android:layout_height="wrap_content" />
 
         <View
+            android:id="@+id/my_view"
             android:layout_width="match_parent"
             android:layout_height="1dp"
-            android:id="@+id/my_view"
             android:layout_below="@+id/my_toolbar"
-            android:background="@color/first_font"/>
+            android:background="@color/colorPrimaryDark" />
 
         <ImageView
             android:id="@+id/iv_main"
             android:layout_width="match_parent"
             android:layout_height="150dp"
             android:layout_below="@+id/my_view"
-            android:scaleType="fitXY"
             android:layout_marginTop="5dp"
+            android:scaleType="fitXY"
             android:src="@drawable/p1" />
 
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="30dp"
             android:layout_below="@+id/my_view"
+            android:layout_marginTop="30dp"
             android:background="@drawable/price_yellow_border"
+            android:fontFamily="@font/jfflat"
             android:paddingEnd="20dp"
             android:paddingStart="20dp"
-            android:fontFamily="@font/jfflat"
             android:text="340 جنية"
             android:textColor="@color/first_font"
-            android:textSize="20sp"
+            android:textSize="16sp"
             android:textStyle="bold" />
 
         <LinearLayout
@@ -65,7 +65,7 @@
                 android:layout_width="50dp"
                 android:layout_height="50dp"
                 android:layout_gravity="center"
-                android:layout_margin="10dp"
+                android:layout_margin="5dp"
                 card_view:cardCornerRadius="8dp">
 
                 <ImageView
@@ -81,7 +81,7 @@
                 android:layout_width="50dp"
                 android:layout_height="50dp"
                 android:layout_gravity="center"
-                android:layout_margin="10dp"
+                android:layout_margin="5dp"
                 card_view:cardCornerRadius="8dp">
 
                 <ImageView
@@ -97,7 +97,7 @@
                 android:layout_width="50dp"
                 android:layout_height="50dp"
                 android:layout_gravity="center"
-                android:layout_margin="10dp"
+                android:layout_margin="5dp"
                 card_view:cardCornerRadius="8dp">
 
                 <ImageView
@@ -112,7 +112,7 @@
                 android:id="@+id/card_view4"
                 android:layout_width="50dp"
                 android:layout_height="50dp"
-                android:layout_margin="10dp"
+                android:layout_margin="5dp"
                 card_view:cardCornerRadius="8dp">
 
                 <ImageView
@@ -130,79 +130,88 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_below="@+id/linear_sub_image"
-            android:layout_margin="5dp"
-            android:textStyle="bold"
-            android:textSize="15sp"
+            android:layout_marginStart="20dp"
+            android:layout_marginTop="10dp"
             android:fontFamily="@font/jfflat"
             android:text="@string/product_description"
-            android:textColor="@color/first_font" />
+            android:textColor="@color/first_font"
+            android:textSize="15sp"
+            android:textStyle="bold" />
 
         <TextView
             android:id="@+id/tv_description"
-            android:layout_width="wrap_content"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_margin="5dp"
-            android:padding="5dp"
-            android:fontFamily="@font/jfflat"
             android:layout_below="@+id/tv_description_name"
-            android:background="@color/white" />
+            android:layout_marginEnd="20dp"
+            android:layout_marginStart="20dp"
+            android:layout_marginTop="5dp"
+            android:padding="5dp"
+            android:lineSpacingExtra="4dp"
+            android:background="@color/white"
+            android:fontFamily="@font/jfflat"
+            android:textColor="@color/second_font" />
 
         <TextView
             android:id="@+id/product_related_to_name"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_below="@+id/tv_description"
-            android:layout_margin="5dp"
-            android:textSize="15sp"
-            android:textStyle="bold"
+            android:layout_marginStart="20dp"
+            android:layout_marginTop="5dp"
             android:fontFamily="@font/jfflat"
             android:text="@string/product_related_to"
-            android:textColor="@color/first_font" />
+            android:textColor="@color/first_font"
+            android:textSize="15sp"
+            android:textStyle="bold" />
 
         <android.support.v7.widget.RecyclerView
             android:id="@+id/recycler_view"
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="5dp"
             android:layout_above="@+id/linear_buttos"
             android:layout_below="@+id/product_related_to_name" />
 
         <LinearLayout
+            android:id="@+id/linear_buttos"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:id="@+id/linear_buttos"
             android:layout_alignParentBottom="true"
             android:layout_centerHorizontal="true"
             android:layout_marginTop="5dp"
-            android:weightSum="2">
+            android:layout_marginStart="20dp"
+            android:layout_marginEnd="20dp"
+            android:layout_marginBottom="15dp"
+            android:gravity="center"
+            android:weightSum="2"
+            android:orientation="horizontal">
 
             <Button
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_margin="10dp"
-                android:layout_weight="1"
-                android:id="@+id/btn_buy"
-                android:background="@color/yellow"
-                android:drawableStart="@drawable/ic_add_shopping_cart_24dp"
-                android:paddingEnd="20dp"
-                android:fontFamily="@font/jfflat"
-                android:paddingStart="20dp"
-                android:text="@string/add_to_cart"
-                android:textColor="@color/first_font"
-                android:textStyle="bold" />
-
-            <Button
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_margin="10dp"
-                android:layout_weight="1"
                 android:id="@+id/btn_add_to_cart"
+                android:layout_width="match_parent"
+                android:layout_height="40dp"
+                android:paddingStart="10dp"
+                android:layout_weight="1"
+                android:layout_marginEnd="5dp"
                 android:background="@color/green"
                 android:drawableStart="@drawable/ic_check_24dp"
-                android:paddingEnd="20dp"
                 android:fontFamily="@font/jfflat"
-                android:paddingStart="20dp"
                 android:text="@string/buy_now"
-                android:textColor="@color/first_font"
+                android:textColor="@color/white"
+                android:textStyle="bold" />
+            <Button
+                android:id="@+id/btn_buy"
+                android:layout_weight="1"
+                android:layout_width="match_parent"
+                android:layout_height="40dp"
+                android:padding="10dp"
+                android:layout_marginStart="5dp"
+                android:background="@color/yellow"
+                android:drawableStart="@drawable/ic_add_shopping_cart_24dp"
+                android:fontFamily="@font/jfflat"
+                android:text="@string/add_to_cart"
+                android:textColor="@color/white"
                 android:textStyle="bold" />
         </LinearLayout>
     </RelativeLayout>

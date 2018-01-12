@@ -15,7 +15,7 @@ public class MyToolbar extends AppCompatActivity {
 
     private ImageView ivCart;
     private TextView tvShopCartNumber;
-    private TextView toolbarTitle;
+    public TextView toolbarTitle;
     private ImageView ivBack;
 
     public void setupMyToolbar(boolean showBack,boolean showCart,String title) {

@@ -10,16 +10,20 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
         <activity
-            android:name=".view.activities.ShowProduct"
+            android:name=".view.activities.ShowProductActivity"
             android:theme="@style/AppTheme.NoActionBar">
         </activity>
-        <activity android:name=".view.activities.SectionsOfShop"
+        <activity
+            android:name=".view.activities.ShopActivity"
             android:theme="@style/AppTheme.NoActionBar">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
+        </activity>
+        <activity android:name=".view.activities.SectionsOfShopActivity"
+            android:theme="@style/AppTheme.NoActionBar">
         </activity>
     </application>
 

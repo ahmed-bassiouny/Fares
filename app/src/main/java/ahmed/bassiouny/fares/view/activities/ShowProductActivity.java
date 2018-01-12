@@ -17,7 +17,7 @@ import ahmed.bassiouny.fares.model.Product;
 import ahmed.bassiouny.fares.toolbar.MyToolbar;
 import ahmed.bassiouny.fares.view.adapter.ProductRelatedToAdapter;
 
-public class ShowProduct extends MyToolbar {
+public class ShowProductActivity extends MyToolbar {
 
     private ImageView ivMain;
     private ImageView ivSub1;
@@ -48,9 +48,11 @@ public class ShowProduct extends MyToolbar {
         products.add(product3);
         ProductRelatedToAdapter productRelatedToAdapter = new ProductRelatedToAdapter(products);
         recyclerView.setAdapter(productRelatedToAdapter);
-        tvDescription.setText("Crew of a neutral metamorphosis, capture the love!");
+        tvDescription.setText("العلامة التجارية ميلانو");
         tvDescription.append("\n");
-        tvDescription.append("Crew of a neutral metamorphosis, capture the love!");
+        tvDescription.append("اللون كحلى");
+        tvDescription.append("\n");
+        tvDescription.append("الخامة جيدة جدا");
         setMainImageFromSubImage(ivSub1);
         setMainImageFromSubImage(ivSub2);
         setMainImageFromSubImage(ivSub3);

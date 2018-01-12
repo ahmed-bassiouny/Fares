@@ -13,7 +13,7 @@ import ahmed.bassiouny.fares.model.Section;
 import ahmed.bassiouny.fares.toolbar.MyToolbar;
 import ahmed.bassiouny.fares.view.adapter.SectionOfShopAdapter;
 
-public class SectionsOfShop extends MyToolbar {
+public class SectionsOfShopActivity extends MyToolbar {
 
     private RecyclerView recyclerView;
     @Override
@@ -35,10 +35,10 @@ public class SectionsOfShop extends MyToolbar {
         Section section2 = new Section(1,"قسم السيدات");
         sections.add(section2);
         Section section3 = new Section(1," قسم السيدات");
-        sections.add(section2);
+        sections.add(section3);
         Section section4 = new Section(1,"قسم الاطفال");
         sections.add(section4);
-        SectionOfShopAdapter sectionOfShopAdapter = new SectionOfShopAdapter(sections);
+        SectionOfShopAdapter sectionOfShopAdapter = new SectionOfShopAdapter(this,sections);
         recyclerView.setAdapter(sectionOfShopAdapter);
     }
 }

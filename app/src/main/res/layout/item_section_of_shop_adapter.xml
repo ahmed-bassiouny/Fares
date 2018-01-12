@@ -7,8 +7,10 @@
     android:layout_height="wrap_content"
     android:layoutDirection="rtl"
     android:textDirection="rtl"
-    android:layout_margin="10dp"
-    card_view:cardCornerRadius="8dp">
+    android:layout_marginTop="10dp"
+    android:layout_marginStart="20dp"
+    android:layout_marginEnd="20dp"
+    card_view:cardCornerRadius="1dp">
 
     <TextView
         android:id="@+id/tv_section"
@@ -22,7 +24,7 @@
         android:text="قسم ملابس الاطفال"
         android:layout_marginEnd="40dp"
         android:textColor="@color/first_font"
-        android:textSize="18sp" />
+        android:textSize="14sp" />
     <ImageView
         android:layout_width="40dp"
         android:layout_height="40dp"
