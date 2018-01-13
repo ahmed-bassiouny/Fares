@@ -1,6 +1,7 @@
 package ahmed.bassiouny.fares.view.fragments;
 
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
@@ -12,13 +13,15 @@ import android.view.ViewGroup;
 import android.widget.TextView;
 
 import ahmed.bassiouny.fares.R;
+import ahmed.bassiouny.fares.interfaces.MyProfileInterface;
+import ahmed.bassiouny.fares.view.activities.EditProfileActivity;
 import ahmed.bassiouny.fares.view.adapter.MySettingAdapter;
 import de.hdodenhof.circleimageview.CircleImageView;
 
 /**
  * A simple {@link Fragment} subclass.
  */
-public class ProfileFragment extends Fragment {
+public class ProfileFragment extends Fragment implements MyProfileInterface{
 
 
     private CircleImageView profileImage;
@@ -26,11 +29,16 @@ public class ProfileFragment extends Fragment {
     private TextView tvPhone;
     private TextView tvAddress;
     private RecyclerView recyclerView;
+    private static ProfileFragment profileFragment;
     
     public ProfileFragment() {
         // Required empty public constructor
     }
-
+    public static ProfileFragment newInstance(){
+        if(profileFragment == null)
+            profileFragment = new ProfileFragment();
+        return profileFragment;
+    }
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
@@ -54,7 +62,15 @@ public class ProfileFragment extends Fragment {
 
     private void setSettingData() {
         recyclerView.setLayoutManager(new LinearLayoutManager(getContext()));
-        MySettingAdapter mySettingAdapter = new MySettingAdapter(getContext(),getResources().getStringArray(R.array.my_setting));
+        MySettingAdapter mySettingAdapter = new MySettingAdapter(this,getResources().getStringArray(R.array.my_setting));
         recyclerView.setAdapter(mySettingAdapter);
+    }
+
+    @Override
+    public void ClickItem(int position) {
+        switch (position){
+            case 0:
+                startActivity(new Intent(getContext(), EditProfileActivity.class));
+        }
     }
 }

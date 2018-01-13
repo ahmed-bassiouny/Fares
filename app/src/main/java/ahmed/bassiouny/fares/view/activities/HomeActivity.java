@@ -15,15 +15,18 @@ import android.view.MenuItem;
 
 import ahmed.bassiouny.fares.R;
 import ahmed.bassiouny.fares.toolbar.MyToolbar;
+import ahmed.bassiouny.fares.utils.MyHelper;
+import ahmed.bassiouny.fares.view.fragments.ProfileFragment;
 
 public class HomeActivity extends MyToolbar
         implements NavigationView.OnNavigationItemSelectedListener {
     DrawerLayout drawer;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_home);
-        setupMyToolbar(false,true,"kfdj");
+        setupMyToolbar(false, true, "kfdj");
         NavigationView navigationView = findViewById(R.id.nav_view);
         drawer = findViewById(R.id.drawer_layout);
         setDrawerLayout(drawer);
@@ -47,22 +50,11 @@ public class HomeActivity extends MyToolbar
     public boolean onNavigationItemSelected(MenuItem item) {
         // Handle navigation view item clicks here.
         int id = item.getItemId();
-/*
-
-        if (id == R.id.nav_camera) {
-            // Handle the camera action
-        } else if (id == R.id.nav_gallery) {
-
-        } else if (id == R.id.nav_slideshow) {
-
-        } else if (id == R.id.nav_manage) {
-
-        } else if (id == R.id.nav_share) {
-
-        } else if (id == R.id.nav_send) {
-
+        switch (id) {
+            case R.id.profile:
+                MyHelper.goToFragment(this, ProfileFragment.newInstance(), false, null);
+                break;
         }
-*/
 
         drawer = findViewById(R.id.drawer_layout);
         drawer.closeDrawer(GravityCompat.START);

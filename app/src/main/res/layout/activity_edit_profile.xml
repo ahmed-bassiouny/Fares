@@ -1,0 +1,113 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+
+    android:gravity="center_horizontal"
+    android:layoutDirection="rtl"
+    android:orientation="vertical"
+    android:textDirection="rtl"
+    tools:context="ahmed.bassiouny.fares.view.activities.EditProfileActivity">
+    <include
+        layout="@layout/my_toolbar"
+        android:id="@+id/my_toolbar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" />
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:id="@+id/my_view"
+        android:layout_below="@+id/my_toolbar"
+        android:background="@color/colorPrimaryDark"/>
+
+    <de.hdodenhof.circleimageview.CircleImageView xmlns:app="http://schemas.android.com/apk/res-auto"
+        android:id="@+id/profile_image"
+        android:layout_width="110dp"
+        android:layout_height="110dp"
+        android:layout_marginTop="30dp"
+        android:src="@drawable/person"
+        app:civ_border_color="@color/first_font"
+        app:civ_border_width="2dp" />
+
+    <EditText
+        android:id="@+id/ed_name"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:background="@drawable/rectangle"
+        android:fontFamily="@font/jfflat"
+        android:padding="5dp"
+        android:layout_marginEnd="20dp"
+        android:layout_marginStart="20dp"
+        android:text="عصام احمد"
+        android:textColor="@color/first_font" />
+
+    <EditText
+        android:id="@+id/ed_phone"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:background="@drawable/rectangle"
+        android:fontFamily="@font/jfflat"
+        android:padding="5dp"
+        android:layout_marginEnd="20dp"
+        android:layout_marginStart="20dp"
+        android:text="01274030337"
+        android:textColor="@color/first_font"/>
+
+    <EditText
+        android:id="@+id/ed_email"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:background="@drawable/rectangle"
+        android:fontFamily="@font/jfflat"
+        android:padding="5dp"
+        android:layout_marginEnd="20dp"
+        android:layout_marginStart="20dp"
+        android:text="ahmedbassiouny26@gmail.com"
+        android:textColor="@color/first_font"/>
+
+    <EditText
+        android:id="@+id/ed_address"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:background="@drawable/rectangle"
+        android:focusableInTouchMode="false"
+        android:fontFamily="@font/jfflat"
+        android:padding="5dp"
+        android:layout_marginEnd="20dp"
+        android:layout_marginStart="20dp"
+        android:text=" سان ستيفانو"
+        android:textColor="@color/first_font" />
+
+    <EditText
+        android:id="@+id/ed_city"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:background="@drawable/rectangle"
+        android:focusableInTouchMode="false"
+        android:fontFamily="@font/jfflat"
+        android:padding="5dp"
+        android:layout_marginEnd="20dp"
+        android:layout_marginStart="20dp"
+        android:text="الاسكندرية"
+        android:textColor="@color/first_font" />
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="40dp"
+        android:layout_marginTop="30dp"
+        android:background="@color/first_font"
+        android:fontFamily="@font/jfflat"
+        android:paddingEnd="50dp"
+        android:paddingStart="50dp"
+        android:text="@string/edit"
+        android:textColor="@color/white"
+        android:textSize="18dp"
+        android:textStyle="bold" />
+</LinearLayout>

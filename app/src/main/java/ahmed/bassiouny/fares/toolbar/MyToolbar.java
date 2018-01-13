@@ -41,6 +41,12 @@ public class MyToolbar extends AppCompatActivity {
             ivCart.setVisibility(View.INVISIBLE);
             tvShopCartNumber.setVisibility(View.INVISIBLE);
         }
+        ivBack.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                onBackPressed();
+            }
+        });
     }
     public void setDrawerLayout(final DrawerLayout drawer){
         ivMenu.setOnClickListener(new View.OnClickListener() {
