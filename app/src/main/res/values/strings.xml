@@ -23,4 +23,6 @@
     <string name="profile">الحساب الشخصى</string>
     <string name="shops">المتاجر</string>
     <string name="edit">تعديل</string>
+    <string name="save">حفظ</string>
+    <string name="rate_suppliers">تقييم التجار</string>
 </resources>

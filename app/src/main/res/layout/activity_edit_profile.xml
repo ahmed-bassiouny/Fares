@@ -104,10 +104,10 @@
         android:layout_marginTop="30dp"
         android:background="@color/first_font"
         android:fontFamily="@font/jfflat"
+        android:textColor="@color/white"
         android:paddingEnd="50dp"
         android:paddingStart="50dp"
         android:text="@string/edit"
-        android:textColor="@color/white"
         android:textSize="18dp"
         android:textStyle="bold" />
 </LinearLayout>
