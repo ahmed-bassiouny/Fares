@@ -12,7 +12,6 @@ import ahmed.bassiouny.fares.R;
 import ahmed.bassiouny.fares.model.Section;
 import ahmed.bassiouny.fares.model.Shop;
 import ahmed.bassiouny.fares.toolbar.MyToolbar;
-import ahmed.bassiouny.fares.utils.SpacesItemDecoration;
 import ahmed.bassiouny.fares.view.adapter.SectionOfShopAdapter;
 import ahmed.bassiouny.fares.view.adapter.ShopAdapter;
 

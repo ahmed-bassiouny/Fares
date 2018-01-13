@@ -50,5 +50,11 @@
             android:layout_height="25dp"
             android:layout_gravity="start"
             android:src="@drawable/ic_arrow_back_black_24dp" />
+        <ImageView
+            android:id="@+id/iv_menu"
+            android:layout_width="25dp"
+            android:layout_height="25dp"
+            android:layout_gravity="start"
+            android:src="@drawable/ic_menu_24dp" />
     </RelativeLayout>
 </android.support.v7.widget.Toolbar>
