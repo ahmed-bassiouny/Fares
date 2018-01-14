@@ -24,5 +24,13 @@
     <string name="shops">المتاجر</string>
     <string name="edit">تعديل</string>
     <string name="save">حفظ</string>
+    <string name="product_price">سعر القطعة : </string>
+    <string name="shop_name">اسم المحل : </string>
+    <string name="quantity">الكمية : </string>
+    <string name="total_price">اجمالى السعر : </string>
+    <string name="delete">حذف</string>
+    <string name="get_product">طلب المنتجات</string>
+    <string name="item_count">عدد القطع : </string>
+    <string name="total">المجموع : </string>
     <string name="rate_suppliers">تقييم التجار</string>
 </resources>
