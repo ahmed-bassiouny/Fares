@@ -37,6 +37,8 @@ public class HomeActivity extends MyToolbar
 
         navigationView.setNavigationItemSelectedListener(this);
         navigationView.getMenu().getItem(0).setChecked(true);
+        MyHelper.goToFragment(HomeActivity.this, AllShopFragment.newInstance(), false, null);
+
     }
 
     @Override
