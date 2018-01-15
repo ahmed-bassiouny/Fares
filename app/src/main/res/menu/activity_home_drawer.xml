@@ -9,9 +9,13 @@
             android:icon="@drawable/ic_person_24dp"
             android:title="@string/profile" />
         <item
-            android:id="@+id/shops"
+            android:id="@+id/all_shops"
             android:icon="@drawable/ic_shopping_cart_24dp"
             android:title="@string/shops" />
+        <item
+            android:id="@+id/shop_cart"
+            android:icon="@drawable/ic_shopping_cart_24dp"
+            android:title="@string/shop_cart" />
         <!--<item
             android:id="@+id/nav_slideshow"
             android:icon="@drawable/ic_menu_slideshow"

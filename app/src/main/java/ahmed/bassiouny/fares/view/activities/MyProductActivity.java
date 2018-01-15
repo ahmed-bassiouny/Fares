@@ -1,7 +1,6 @@
 package ahmed.bassiouny.fares.view.activities;
 
 import android.os.Bundle;
-import android.support.v7.widget.GridLayoutManager;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 
@@ -10,10 +9,8 @@ import java.util.List;
 
 import ahmed.bassiouny.fares.R;
 import ahmed.bassiouny.fares.model.Product;
-import ahmed.bassiouny.fares.model.Shop;
 import ahmed.bassiouny.fares.toolbar.MyToolbar;
 import ahmed.bassiouny.fares.view.adapter.MyProductAdapter;
-import ahmed.bassiouny.fares.view.adapter.ShopAdapter;
 
 public class MyProductActivity extends MyToolbar {
 
@@ -21,7 +18,7 @@ public class MyProductActivity extends MyToolbar {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_shop);
+        setContentView(R.layout.activity_my_product);
         setupMyToolbar(true,true,"المنتجات");
         findViewById();
         setFakeData();
@@ -39,7 +36,7 @@ public class MyProductActivity extends MyToolbar {
         products.add(product2);
         Product product3 = new Product("بنطلون","وصف عن البنطلون دة","350 جنية",R.drawable.p1);
         products.add(product3);
-        MyProductAdapter myProductAdapter = new MyProductAdapter(products);
+        MyProductAdapter myProductAdapter = new MyProductAdapter(this,products);
         recyclerView.setAdapter(myProductAdapter);
     }
 }

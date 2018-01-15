@@ -1,5 +1,7 @@
 package ahmed.bassiouny.fares.view.adapter;
 
+import android.content.Context;
+import android.content.Intent;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -11,6 +13,8 @@ import java.util.List;
 
 import ahmed.bassiouny.fares.R;
 import ahmed.bassiouny.fares.model.Product;
+import ahmed.bassiouny.fares.view.activities.MyProductActivity;
+import ahmed.bassiouny.fares.view.activities.ShowProductActivity;
 
 /**
  * Created by bassiouny on 11/01/18.
@@ -19,16 +23,19 @@ import ahmed.bassiouny.fares.model.Product;
 public class MyProductAdapter extends RecyclerView.Adapter<MyProductAdapter.MyViewHolder> {
 
     private List<Product> products;
+    private Context context;
 
-    public MyProductAdapter(List<Product> products) {
+    public MyProductAdapter(Context context, List<Product> products) {
         this.products = products;
+        this.context = context;
     }
 
     public class MyViewHolder extends RecyclerView.ViewHolder {
 
-        private ImageView ivProductImage,ivMore;
+        private ImageView ivProductImage, ivMore;
         private TextView tvProductName;
         private TextView tvProductPrice;
+
         public MyViewHolder(View view) {
             super(view);
             ivProductImage = view.findViewById(R.id.iv_product_image);
@@ -51,6 +58,12 @@ public class MyProductAdapter extends RecyclerView.Adapter<MyProductAdapter.MyVi
         holder.ivProductImage.setImageResource(product.getPhoto());
         holder.tvProductName.setText(product.getName());
         holder.tvProductPrice.setText(product.getPrice());
+        holder.ivMore.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                context.startActivity(new Intent(context, ShowProductActivity.class));
+            }
+        });
     }
 
     @Override

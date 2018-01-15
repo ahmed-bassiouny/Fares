@@ -14,6 +14,7 @@ import java.util.List;
 import ahmed.bassiouny.fares.R;
 import ahmed.bassiouny.fares.model.Product;
 import ahmed.bassiouny.fares.model.Section;
+import ahmed.bassiouny.fares.view.activities.MyProductActivity;
 import ahmed.bassiouny.fares.view.activities.ShowProductActivity;
 
 /**
@@ -55,7 +56,7 @@ public class SectionOfShopAdapter extends RecyclerView.Adapter<SectionOfShopAdap
         holder.tvSection.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                context.startActivity(new Intent(context, ShowProductActivity.class));
+                context.startActivity(new Intent(context, MyProductActivity.class));
             }
         });
     }

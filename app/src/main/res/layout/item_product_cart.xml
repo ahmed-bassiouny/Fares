@@ -7,6 +7,7 @@
     android:layout_height="wrap_content"
     android:layoutDirection="rtl"
     android:textDirection="rtl"
+    android:layout_marginTop="10dp"
     card_view:cardCornerRadius="1dp">
 
     <RelativeLayout
@@ -67,8 +68,9 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_below="@+id/tv_product_price"
-            android:layout_centerHorizontal="true"
             android:layout_marginTop="5dp"
+            android:layout_marginStart="5dp"
+            android:layout_toEndOf="@+id/iv_product_image"
             android:background="@color/first_font"
             android:orientation="horizontal"
             android:padding="3dp">
@@ -87,10 +89,12 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:background="@null"
-                android:digits="123456789"
+                android:digits="0123456789"
                 android:fontFamily="@font/jfflat"
                 android:inputType="number"
-                android:padding="3dp"
+                android:paddingStart="5dp"
+                android:paddingEnd="5dp"
+                android:maxLength="2"
                 android:textColor="@color/white"
                 android:textSize="12sp"
                 tools:text="2" />
@@ -120,6 +124,7 @@
             android:layout_height="25dp"
             android:text="@string/delete"
             android:id="@+id/btn_delete"
+            android:layout_marginTop="5dp"
             android:layout_alignParentEnd="true"
             android:fontFamily="@font/jfflat"
             android:textColor="@color/first_font"

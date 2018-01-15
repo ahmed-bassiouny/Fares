@@ -9,6 +9,12 @@ public class ProductCart {
     private String shopName;
     private int quantity;
 
+    public ProductCart(Product product, String shopName, int quantity) {
+        this.product = product;
+        this.shopName = shopName;
+        this.quantity = quantity;
+    }
+
     public Product getProduct() {
         return product;
     }

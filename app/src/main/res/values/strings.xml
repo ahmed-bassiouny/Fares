@@ -33,4 +33,6 @@
     <string name="item_count">عدد القطع : </string>
     <string name="total">المجموع : </string>
     <string name="rate_suppliers">تقييم التجار</string>
+    <string name="shop_cart">سلة المشتريات</string>
+
 </resources>

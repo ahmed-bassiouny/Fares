@@ -38,7 +38,6 @@ public class CartProductAdapter extends RecyclerView.Adapter<CartProductAdapter.
 
         public MyViewHolder(View view) {
             super(view);
-
             ivProductImage = view.findViewById(R.id.iv_product_image);
             tvProductName = view.findViewById(R.id.tv_product_name);
             tvShopName = view.findViewById(R.id.tv_shop_name);
