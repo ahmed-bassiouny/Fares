@@ -1,6 +1,7 @@
 package ahmed.bassiouny.fares.view.fragments;
 
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
@@ -9,6 +10,7 @@ import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
@@ -20,6 +22,7 @@ import ahmed.bassiouny.fares.interfaces.MyTitle;
 import ahmed.bassiouny.fares.model.Product;
 import ahmed.bassiouny.fares.model.ProductCart;
 import ahmed.bassiouny.fares.view.adapter.CartProductAdapter;
+import ahmed.bassiouny.fares.view.dialog.GetProductDialogActivity;
 
 /**
  * A simple {@link Fragment} subclass.
@@ -31,6 +34,7 @@ public class MyProductsCartFragment extends Fragment {
     private TextView tvTotal;
     private static MyProductsCartFragment myProductsCartFragment;
     private MyTitle myTitle;
+    private Button btnGetProduct;
 
     public MyProductsCartFragment() {
         // Required empty public constructor
@@ -55,9 +59,20 @@ public class MyProductsCartFragment extends Fragment {
         recyclerView = view.findViewById(R.id.recycler_view);
         tvItemCount = view.findViewById(R.id.tv_item_count);
         tvTotal = view.findViewById(R.id.tv_total);
+        btnGetProduct = view.findViewById(R.id.btn_get_product);
         recyclerView.setLayoutManager(new LinearLayoutManager(getContext()));
         myTitle = (MyTitle) getActivity();
         myTitle.changeTitle(getString(R.string.shop_cart));
+        onClick();
+    }
+
+    private void onClick() {
+        btnGetProduct.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startActivity(new Intent(getContext(), GetProductDialogActivity.class));
+            }
+        });
     }
 
     @Override

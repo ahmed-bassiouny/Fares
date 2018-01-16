@@ -21,6 +21,7 @@
         <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
         <item name="colorAccent">@color/colorAccent</item>
         <item name="windowNoTitle">true</item>
+        <item name="android:windowBackground">@drawable/dialog_radius</item>
         <item name="android:excludeFromRecents">true</item>
     </style>
 
