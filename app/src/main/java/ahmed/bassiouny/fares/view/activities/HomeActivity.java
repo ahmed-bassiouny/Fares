@@ -19,6 +19,7 @@ import ahmed.bassiouny.fares.interfaces.MyTitle;
 import ahmed.bassiouny.fares.toolbar.MyToolbar;
 import ahmed.bassiouny.fares.utils.MyHelper;
 import ahmed.bassiouny.fares.view.fragments.AllShopFragment;
+import ahmed.bassiouny.fares.view.fragments.CurrentOrdersFragment;
 import ahmed.bassiouny.fares.view.fragments.MyProductsCartFragment;
 import ahmed.bassiouny.fares.view.fragments.ProfileFragment;
 
@@ -62,13 +63,20 @@ public class HomeActivity extends MyToolbar
             public void run() {
                 switch (id) {
                     case R.id.profile:
+                        toolbarTitle.setText(R.string.profile);
                         MyHelper.goToFragment(HomeActivity.this, ProfileFragment.newInstance(), false, null);
                         break;
                     case R.id.all_shops:
+                        toolbarTitle.setText(R.string.shops);
                         MyHelper.goToFragment(HomeActivity.this, AllShopFragment.newInstance(), false, null);
                         break;
                     case R.id.shop_cart:
+                        toolbarTitle.setText(R.string.shop_cart);
                         MyHelper.goToFragment(HomeActivity.this, MyProductsCartFragment.newInstance(), false, null);
+                        break;
+                    case R.id.current_orders:
+                        toolbarTitle.setText(R.string.current_orders);
+                        MyHelper.goToFragment(HomeActivity.this, CurrentOrdersFragment.newInstance(), false, null);
                         break;
                 }
             }

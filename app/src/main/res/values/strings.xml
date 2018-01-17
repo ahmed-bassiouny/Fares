@@ -37,4 +37,12 @@
     <string name="shop_cart">سلة المشتريات</string>
     <string name="products_cost">تكلفة المنتجات : </string>
     <string name="shipping_cost">تكلفة شركة الشحن</string>
+    <string name="order_status">حالة الطلب</string>
+    <string name="first_status">اول خطوة</string>
+    <string name="second_status">ثانى خطوة</string>
+    <string name="third_status">ثالث خطوة</string>
+    <string name="delivered">تم التوصيل</string>
+    <string name="show_more">مشاهدة المزيد</string>
+    <string name="current_orders">الطلبات الحالية</string>
+
 </resources>

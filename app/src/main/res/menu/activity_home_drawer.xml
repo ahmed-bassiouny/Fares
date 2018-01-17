@@ -16,6 +16,10 @@
             android:id="@+id/shop_cart"
             android:icon="@drawable/ic_shopping_cart_24dp"
             android:title="@string/shop_cart" />
+        <item
+            android:id="@+id/current_orders"
+            android:icon="@drawable/ic_widgets_24dp"
+            android:title="@string/current_orders" />
         <!--<item
             android:id="@+id/nav_slideshow"
             android:icon="@drawable/ic_menu_slideshow"
