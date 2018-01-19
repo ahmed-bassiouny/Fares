@@ -44,5 +44,6 @@
     <string name="delivered">تم التوصيل</string>
     <string name="show_more">مشاهدة المزيد</string>
     <string name="current_orders">الطلبات الحالية</string>
+    <string name="order_details">تفاصيل الطلب</string>
 
 </resources>

@@ -33,7 +33,9 @@
         <activity
             android:name=".view.activities.RateSuppliersActivity"
             android:theme="@style/AppThemeDialog" />
-        <activity android:name=".view.dialog.GetProductDialogActivity"
+        <activity android:name=".view.dialog.OrderDeliveryDetailsDialogActivity"
+            android:theme="@style/AppThemeDialog"/>
+        <activity android:name=".view.dialog.UserOrderetailsDialogActivity"
             android:theme="@style/AppThemeDialog"/>
     </application>
 

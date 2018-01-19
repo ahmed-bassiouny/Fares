@@ -11,7 +11,7 @@ import android.widget.TextView;
 import ahmed.bassiouny.fares.R;
 import ahmed.bassiouny.fares.interfaces.ParseObject;
 
-public class GetProductDialogActivity extends AppCompatActivity implements ParseObject<Integer> {
+public class OrderDeliveryDetailsDialogActivity extends AppCompatActivity implements ParseObject<Integer> {
 
     private RadioGroup radioGroup;
     private ImageView ivClose;

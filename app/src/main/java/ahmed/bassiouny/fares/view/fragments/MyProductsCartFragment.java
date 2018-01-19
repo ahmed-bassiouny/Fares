@@ -11,7 +11,6 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
-import android.widget.LinearLayout;
 import android.widget.TextView;
 
 import java.util.ArrayList;
@@ -22,7 +21,7 @@ import ahmed.bassiouny.fares.interfaces.MyTitle;
 import ahmed.bassiouny.fares.model.Product;
 import ahmed.bassiouny.fares.model.ProductCart;
 import ahmed.bassiouny.fares.view.adapter.CartProductAdapter;
-import ahmed.bassiouny.fares.view.dialog.GetProductDialogActivity;
+import ahmed.bassiouny.fares.view.dialog.OrderDeliveryDetailsDialogActivity;
 
 /**
  * A simple {@link Fragment} subclass.
@@ -70,7 +69,7 @@ public class MyProductsCartFragment extends Fragment {
         btnGetProduct.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                startActivity(new Intent(getContext(), GetProductDialogActivity.class));
+                startActivity(new Intent(getContext(), OrderDeliveryDetailsDialogActivity.class));
             }
         });
     }
