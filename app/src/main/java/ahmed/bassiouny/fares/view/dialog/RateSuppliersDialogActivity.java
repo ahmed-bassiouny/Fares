@@ -1,4 +1,4 @@
-package ahmed.bassiouny.fares.view.activities;
+package ahmed.bassiouny.fares.view.dialog;
 
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -11,7 +11,7 @@ import android.widget.TextView;
 
 import ahmed.bassiouny.fares.R;
 
-public class RateSuppliersActivity extends AppCompatActivity {
+public class RateSuppliersDialogActivity extends AppCompatActivity {
 
 
     private ImageView ivClose;
@@ -28,18 +28,25 @@ public class RateSuppliersActivity extends AppCompatActivity {
 
     private void setRateBarForSupplier(int numberOfSupplier) {
         for(int i=0 ;i <numberOfSupplier ; i++ ) {
+            LinearLayout.LayoutParams params = new LinearLayout.LayoutParams(LinearLayout.LayoutParams.WRAP_CONTENT, LinearLayout.LayoutParams.WRAP_CONTENT);
+            params.gravity = Gravity.CENTER;
+            LinearLayout linearLayout = new LinearLayout(this);
+            linearLayout.setOrientation(LinearLayout.HORIZONTAL);
+            linearLayout.setLayoutDirection(View.LAYOUT_DIRECTION_RTL);
+            linearLayout.setTextDirection(View.TEXT_DIRECTION_LTR);
+            linearLayout.setLayoutParams(params);
             TextView textView = new TextView(this);
             textView.setText("احمد بسيونى");
-            textView.setTextSize(16f);
-            textView.setTextColor(getResources().getColor(R.color.second_font));
-            linearContainer.addView(textView);
+            textView.setTextSize(18f);
+            textView.setPadding(10,10,0,0);
+            textView.setGravity(Gravity.CENTER_VERTICAL);
+            textView.setTextColor(getResources().getColor(R.color.first_font));
+            linearLayout.addView(textView);
             RatingBar ratingBar = new RatingBar(this, null, R.attr.ratingBarStyleIndicator);
-            LinearLayout.LayoutParams params = new LinearLayout.LayoutParams(LinearLayout.LayoutParams.WRAP_CONTENT, LinearLayout.LayoutParams.WRAP_CONTENT);
-            params.gravity = Gravity.CENTER_HORIZONTAL;
-            ratingBar.setLayoutParams(params);
             ratingBar.setNumStars(5);
             ratingBar.setIsIndicator(false);
-            linearContainer.addView(ratingBar);
+            linearLayout.addView(ratingBar);
+            linearContainer.addView(linearLayout);
         }
     }
 

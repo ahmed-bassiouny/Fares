@@ -31,7 +31,7 @@
             android:name=".view.activities.EditProfileActivity"
             android:theme="@style/AppTheme.NoActionBar" />
         <activity
-            android:name=".view.activities.RateSuppliersActivity"
+            android:name=".view.dialog.RateSuppliersDialogActivity"
             android:theme="@style/AppThemeDialog" />
         <activity android:name=".view.dialog.OrderDeliveryDetailsDialogActivity"
             android:theme="@style/AppThemeDialog"/>

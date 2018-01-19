@@ -16,7 +16,7 @@ import ahmed.bassiouny.fares.R;
 import ahmed.bassiouny.fares.interfaces.MyProfileInterface;
 import ahmed.bassiouny.fares.interfaces.MyTitle;
 import ahmed.bassiouny.fares.view.activities.EditProfileActivity;
-import ahmed.bassiouny.fares.view.activities.RateSuppliersActivity;
+import ahmed.bassiouny.fares.view.dialog.RateSuppliersDialogActivity;
 import ahmed.bassiouny.fares.view.adapter.MySettingAdapter;
 import de.hdodenhof.circleimageview.CircleImageView;
 
@@ -77,7 +77,7 @@ public class ProfileFragment extends Fragment implements MyProfileInterface{
                 startActivity(new Intent(getContext(), EditProfileActivity.class));
                 break;
             case 3:
-                startActivity(new Intent(getContext(), RateSuppliersActivity.class));
+                startActivity(new Intent(getContext(), RateSuppliersDialogActivity.class));
                 break;
         }
     }
