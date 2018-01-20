@@ -12,17 +12,19 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="vertical">
+
         <include
-            layout="@layout/my_toolbar"
             android:id="@+id/my_toolbar"
+            layout="@layout/my_toolbar"
             android:layout_width="match_parent"
             android:layout_height="wrap_content" />
+
         <View
+            android:id="@+id/my_view"
             android:layout_width="match_parent"
             android:layout_height="1dp"
-            android:id="@+id/my_view"
             android:layout_below="@+id/my_toolbar"
-            android:background="@color/colorPrimaryDark"/>
+            android:background="@color/colorPrimaryDark" />
 
         <TextView
             android:layout_width="wrap_content"
@@ -81,29 +83,52 @@
         <android.support.design.widget.TextInputLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:padding="5dp"
             android:layout_marginEnd="10dp"
             android:layout_marginStart="10dp"
+            android:layout_marginTop="10dp"
             android:background="@drawable/rectangle"
-            android:layout_marginTop="10dp">
+            android:padding="5dp">
 
             <android.support.design.widget.TextInputEditText
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:background="@null"
                 android:fontFamily="@font/jfflat"
                 android:hint="@string/product_name"
-                android:background="@null"
                 android:textColor="@color/second_font" />
         </android.support.design.widget.TextInputLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:layout_margin="10dp">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/jfflat"
+                android:text="@string/section"
+                android:gravity="center"
+                android:textSize="16sp"
+                android:textColor="@color/first_font" />
+
+            <Spinner
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="10dp"
+                android:gravity="center"
+                android:entries="@array/sections" />
+        </LinearLayout>
 
         <android.support.design.widget.TextInputLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:padding="5dp"
             android:layout_marginEnd="10dp"
             android:layout_marginStart="10dp"
+            android:layout_marginTop="10dp"
             android:background="@drawable/rectangle"
-            android:layout_marginTop="10dp">
+            android:padding="5dp">
 
             <android.support.design.widget.TextInputEditText
                 android:layout_width="match_parent"
@@ -129,19 +154,21 @@
             <android.support.design.widget.TextInputLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:padding="5dp"
                 android:layout_marginEnd="5dp"
                 android:layout_marginStart="10dp"
+                android:layout_marginTop="10dp"
+                android:layout_weight="1"
                 android:background="@drawable/rectangle"
-                android:layout_marginTop="10dp">
+                android:padding="5dp">
 
                 <android.support.design.widget.TextInputEditText
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:background="@null"
+                    android:digits="0123456789."
                     android:fontFamily="@font/jfflat"
                     android:hint="@string/price_for_part_product"
+                    android:inputType="numberDecimal"
                     android:textColor="@color/second_font"
                     android:textSize="15sp" />
             </android.support.design.widget.TextInputLayout>
@@ -149,19 +176,21 @@
             <android.support.design.widget.TextInputLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:padding="5dp"
                 android:layout_marginEnd="10dp"
                 android:layout_marginStart="5dp"
+                android:layout_marginTop="10dp"
+                android:layout_weight="1"
                 android:background="@drawable/rectangle"
-                android:layout_marginTop="10dp">
+                android:padding="5dp">
 
                 <android.support.design.widget.TextInputEditText
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:background="@null"
+                    android:digits="0123456789."
                     android:fontFamily="@font/jfflat"
                     android:hint="@string/price_for_full_product"
+                    android:inputType="numberDecimal"
                     android:textColor="@color/second_font"
                     android:textSize="15sp" />
             </android.support.design.widget.TextInputLayout>
@@ -170,19 +199,21 @@
         <android.support.design.widget.TextInputLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:padding="5dp"
             android:layout_marginEnd="10dp"
             android:layout_marginStart="10dp"
+            android:layout_marginTop="10dp"
             android:background="@drawable/rectangle"
-            android:layout_marginTop="10dp">
+            android:padding="5dp">
 
             <android.support.design.widget.TextInputEditText
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_gravity="top"
-                android:fontFamily="@font/jfflat"
                 android:background="@null"
+                android:digits="0123456789"
+                android:fontFamily="@font/jfflat"
                 android:hint="@string/count_for_full_product"
+                android:inputType="number"
                 android:textColor="@color/second_font" />
         </android.support.design.widget.TextInputLayout>
 
@@ -211,19 +242,21 @@
         <android.support.design.widget.TextInputLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:padding="5dp"
             android:layout_marginEnd="10dp"
             android:layout_marginStart="10dp"
+            android:layout_marginTop="10dp"
             android:background="@drawable/rectangle"
-            android:layout_marginTop="10dp">
+            android:padding="5dp">
 
             <android.support.design.widget.TextInputEditText
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_gravity="top"
                 android:background="@null"
+                android:digits="0123456789"
                 android:fontFamily="@font/jfflat"
                 android:hint="@string/count_product"
+                android:inputType="number"
                 android:textColor="@color/second_font" />
         </android.support.design.widget.TextInputLayout>
 
@@ -238,12 +271,12 @@
             android:layout_width="wrap_content"
             android:layout_height="40dp"
             android:layout_gravity="center"
+            android:layout_marginBottom="20dp"
             android:layout_marginTop="20dp"
             android:background="@drawable/button_radius"
             android:fontFamily="@font/jfflat"
             android:paddingEnd="15dp"
             android:paddingStart="15dp"
-            android:layout_marginBottom="20dp"
             android:text="@string/create_shop"
             android:textColor="@color/white"
             android:textSize="18sp" />

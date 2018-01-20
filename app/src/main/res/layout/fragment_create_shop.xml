@@ -91,6 +91,8 @@
             android:fontFamily="@font/jfflat"
             android:hint="@string/phone"
             android:minHeight="40dp"
+            android:inputType="phone"
+            android:digits="0123456789"
             android:textColor="@color/second_font" />
     </android.support.design.widget.TextInputLayout>
 
