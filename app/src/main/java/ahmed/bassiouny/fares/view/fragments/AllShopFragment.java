@@ -18,7 +18,6 @@ import ahmed.bassiouny.fares.R;
 import ahmed.bassiouny.fares.interfaces.MyTitle;
 import ahmed.bassiouny.fares.model.Product;
 import ahmed.bassiouny.fares.model.Shop;
-import ahmed.bassiouny.fares.view.adapter.MyProductAdapter;
 import ahmed.bassiouny.fares.view.adapter.ShopAdapter;
 
 /**

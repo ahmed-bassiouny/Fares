@@ -13,19 +13,18 @@ import java.util.List;
 
 import ahmed.bassiouny.fares.R;
 import ahmed.bassiouny.fares.model.Product;
-import ahmed.bassiouny.fares.view.activities.MyProductActivity;
 import ahmed.bassiouny.fares.view.activities.ShowProductActivity;
 
 /**
  * Created by bassiouny on 11/01/18.
  */
 
-public class MyProductAdapter extends RecyclerView.Adapter<MyProductAdapter.MyViewHolder> {
+public class AllProductAdapter extends RecyclerView.Adapter<AllProductAdapter.MyViewHolder> {
 
     private List<Product> products;
     private Context context;
 
-    public MyProductAdapter(Context context, List<Product> products) {
+    public AllProductAdapter(Context context, List<Product> products) {
         this.products = products;
         this.context = context;
     }
@@ -48,7 +47,7 @@ public class MyProductAdapter extends RecyclerView.Adapter<MyProductAdapter.MyVi
     @Override
     public MyViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
         View itemView = LayoutInflater.from(parent.getContext())
-                .inflate(R.layout.item_my_product_adapter, parent, false);
+                .inflate(R.layout.item_all_product_adapter, parent, false);
         return new MyViewHolder(itemView);
     }
 

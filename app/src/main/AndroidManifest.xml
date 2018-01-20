@@ -16,7 +16,7 @@
             android:name=".view.activities.SectionsOfShopActivity"
             android:theme="@style/AppTheme.NoActionBar" />
         <activity
-            android:name=".view.activities.MyProductActivity"
+            android:name=".view.activities.AllProductActivity"
             android:theme="@style/AppTheme.NoActionBar" />
         <activity
             android:name=".view.activities.HomeActivity"

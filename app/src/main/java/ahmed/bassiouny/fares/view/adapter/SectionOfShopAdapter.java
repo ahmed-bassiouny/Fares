@@ -12,10 +12,8 @@ import android.widget.TextView;
 import java.util.List;
 
 import ahmed.bassiouny.fares.R;
-import ahmed.bassiouny.fares.model.Product;
 import ahmed.bassiouny.fares.model.Section;
-import ahmed.bassiouny.fares.view.activities.MyProductActivity;
-import ahmed.bassiouny.fares.view.activities.ShowProductActivity;
+import ahmed.bassiouny.fares.view.activities.AllProductActivity;
 
 /**
  * Created by bassiouny on 11/01/18.
@@ -56,7 +54,7 @@ public class SectionOfShopAdapter extends RecyclerView.Adapter<SectionOfShopAdap
         holder.tvSection.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                context.startActivity(new Intent(context, MyProductActivity.class));
+                context.startActivity(new Intent(context, AllProductActivity.class));
             }
         });
     }
