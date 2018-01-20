@@ -46,7 +46,7 @@
             android:layout_marginStart="5dp"
             android:layout_toEndOf="@+id/iv_product_image"
             android:fontFamily="@font/jfflat"
-            android:text="@string/shop_name"
+            android:text="@string/shope_name"
             android:textColor="@color/second_font"
             android:textSize="12sp" />
 

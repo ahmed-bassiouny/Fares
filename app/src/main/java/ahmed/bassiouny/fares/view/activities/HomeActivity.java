@@ -12,6 +12,7 @@ import ahmed.bassiouny.fares.interfaces.MyTitle;
 import ahmed.bassiouny.fares.toolbar.MyToolbar;
 import ahmed.bassiouny.fares.utils.MyHelper;
 import ahmed.bassiouny.fares.view.fragments.AllShopFragment;
+import ahmed.bassiouny.fares.view.fragments.CreateShopFragment;
 import ahmed.bassiouny.fares.view.fragments.UserOrdersFragment;
 import ahmed.bassiouny.fares.view.fragments.MyProductsCartFragment;
 import ahmed.bassiouny.fares.view.fragments.ProfileFragment;
@@ -70,6 +71,10 @@ public class HomeActivity extends MyToolbar
                     case R.id.current_orders:
                         toolbarTitle.setText(R.string.current_orders);
                         MyHelper.goToFragment(HomeActivity.this, UserOrdersFragment.newInstance(), false, null);
+                        break;
+                    case R.id.create_shop:
+                        toolbarTitle.setText(R.string.create_shop);
+                        MyHelper.goToFragment(HomeActivity.this, CreateShopFragment.newInstance(), false, null);
                         break;
                 }
             }

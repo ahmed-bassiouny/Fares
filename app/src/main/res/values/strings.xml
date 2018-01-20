@@ -25,7 +25,6 @@
     <string name="edit">تعديل</string>
     <string name="save">حفظ</string>
     <string name="product_price">سعر القطعة : </string>
-    <string name="shop_name">اسم المحل : </string>
     <string name="quantity">الكمية : </string>
     <string name="total_price">اجمالى السعر : </string>
     <string name="delete">حذف</string>
@@ -45,5 +44,22 @@
     <string name="show_more">مشاهدة المزيد</string>
     <string name="current_orders">الطلبات الحالية</string>
     <string name="order_details">تفاصيل الطلب</string>
+    <string name="shop_picture">صورة المتجر</string>
+    <string name="shope_name">اسم المتجر</string>
+    <string name="shope_description">وصف المتجر</string>
+    <string name="phone">رقم الموبايل</string>
+    <string name="create_shop">إنشاء المتجر</string>
 
+    <string name="product_picture">صور المنتج</string>
+    <string name="product_name">اسم المنتج</string>
+    <string name="price_for_part_product">سعر المنتج قطاعى</string>
+    <string name="price_for_full_product">سعر المنتج جمله</string>
+    <string name="count_for_full_product">عدد الجمله يبدا من</string>
+    <string name="count_product">عدد القطع المتوفرة</string>
+    <string name="product_can_be_ready">سيتم تجهيز المنتج خلال</string>
+    <string name="create_product">إنشاء المنتج</string>
+    <array name="product_can_be_ready_value">
+        <item>24 ساعة</item>
+        <item>48 ساعة</item>
+    </array>
 </resources>
