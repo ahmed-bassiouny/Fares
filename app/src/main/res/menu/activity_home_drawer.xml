@@ -24,6 +24,10 @@
             android:id="@+id/create_shop"
             android:icon="@drawable/ic_shopping_cart_24dp"
             android:title="@string/create_shop" />
+        <item
+            android:id="@+id/my_shop"
+            android:icon="@drawable/ic_shopping_cart_24dp"
+            android:title="@string/my_shop" />
     </group>
 
 </menu>

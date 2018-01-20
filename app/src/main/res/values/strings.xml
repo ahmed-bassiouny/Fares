@@ -58,7 +58,9 @@
     <string name="count_product">عدد القطع المتوفرة</string>
     <string name="product_can_be_ready">سيتم تجهيز المنتج خلال</string>
     <string name="create_product">إنشاء المنتج</string>
+    <string name="add_product">اضافة المنتج</string>
     <string name="section">القسم الخاص بالمنتج</string>
+    <string name="my_shop">متجرى</string>
     <array name="product_can_be_ready_value">
         <item>24 ساعة</item>
         <item>48 ساعة</item>
