@@ -17,7 +17,6 @@ import java.util.ArrayList;
 import java.util.List;
 
 import ahmed.bassiouny.fares.R;
-import ahmed.bassiouny.fares.interfaces.MyTitle;
 import ahmed.bassiouny.fares.model.Product;
 import ahmed.bassiouny.fares.model.ProductCart;
 import ahmed.bassiouny.fares.view.adapter.CartProductAdapter;
@@ -32,7 +31,6 @@ public class MyProductsCartFragment extends Fragment {
     private TextView tvItemCount;
     private TextView tvTotal;
     private static MyProductsCartFragment myProductsCartFragment;
-    private MyTitle myTitle;
     private Button btnGetProduct;
 
     public MyProductsCartFragment() {
@@ -60,8 +58,6 @@ public class MyProductsCartFragment extends Fragment {
         tvTotal = view.findViewById(R.id.tv_total);
         btnGetProduct = view.findViewById(R.id.btn_get_product);
         recyclerView.setLayoutManager(new LinearLayoutManager(getContext()));
-        myTitle = (MyTitle) getActivity();
-        myTitle.changeTitle(getString(R.string.shop_cart));
         onClick();
     }
 

@@ -8,7 +8,6 @@ import android.support.v4.widget.DrawerLayout;
 import android.view.MenuItem;
 
 import ahmed.bassiouny.fares.R;
-import ahmed.bassiouny.fares.interfaces.MyTitle;
 import ahmed.bassiouny.fares.toolbar.MyToolbar;
 import ahmed.bassiouny.fares.utils.MyHelper;
 import ahmed.bassiouny.fares.view.fragments.AllShopFragment;
@@ -18,7 +17,7 @@ import ahmed.bassiouny.fares.view.fragments.MyProductsCartFragment;
 import ahmed.bassiouny.fares.view.fragments.ProfileFragment;
 
 public class HomeActivity extends MyToolbar
-        implements NavigationView.OnNavigationItemSelectedListener,MyTitle {
+        implements NavigationView.OnNavigationItemSelectedListener {
     DrawerLayout drawer;
 
     @Override
@@ -82,10 +81,5 @@ public class HomeActivity extends MyToolbar
         drawer = findViewById(R.id.drawer_layout);
         drawer.closeDrawer(GravityCompat.START);
         return true;
-    }
-
-    @Override
-    public void changeTitle(String title) {
-        toolbarTitle.setText(title);
     }
 }

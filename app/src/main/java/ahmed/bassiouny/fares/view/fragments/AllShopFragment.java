@@ -5,7 +5,6 @@ import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
 import android.support.v7.widget.GridLayoutManager;
-import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -15,8 +14,6 @@ import java.util.ArrayList;
 import java.util.List;
 
 import ahmed.bassiouny.fares.R;
-import ahmed.bassiouny.fares.interfaces.MyTitle;
-import ahmed.bassiouny.fares.model.Product;
 import ahmed.bassiouny.fares.model.Shop;
 import ahmed.bassiouny.fares.view.adapter.ShopAdapter;
 
@@ -28,7 +25,6 @@ import ahmed.bassiouny.fares.view.adapter.ShopAdapter;
 public class AllShopFragment extends Fragment {
 
     private RecyclerView recyclerView;
-    private MyTitle myTitle;
     private static AllShopFragment allShopFragment;
 
     public AllShopFragment() {
@@ -53,8 +49,6 @@ public class AllShopFragment extends Fragment {
 
         recyclerView = view.findViewById(R.id.recycler_view);
         recyclerView.setLayoutManager(new GridLayoutManager(getContext(),2));
-        myTitle = (MyTitle) getActivity();
-        myTitle.changeTitle(getString(R.string.shops));
         setFakeData();
     }
 

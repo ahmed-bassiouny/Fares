@@ -14,7 +14,6 @@ import android.widget.TextView;
 
 import ahmed.bassiouny.fares.R;
 import ahmed.bassiouny.fares.interfaces.MyProfileInterface;
-import ahmed.bassiouny.fares.interfaces.MyTitle;
 import ahmed.bassiouny.fares.view.activities.EditProfileActivity;
 import ahmed.bassiouny.fares.view.dialog.RateSuppliersDialogActivity;
 import ahmed.bassiouny.fares.view.adapter.MySettingAdapter;
@@ -32,8 +31,6 @@ public class ProfileFragment extends Fragment implements MyProfileInterface{
     private TextView tvAddress;
     private RecyclerView recyclerView;
     private static ProfileFragment profileFragment;
-    private MyTitle myTitle;
-
     public ProfileFragment() {
         // Required empty public constructor
     }
@@ -59,8 +56,6 @@ public class ProfileFragment extends Fragment implements MyProfileInterface{
         tvPhone = view.findViewById(R.id.tv_phone);
         tvAddress = view.findViewById(R.id.tv_address);
         recyclerView = view.findViewById(R.id.recycler_view);
-        myTitle = (MyTitle) getActivity();
-        myTitle.changeTitle(getString(R.string.profile));
         setSettingData();
     }
 
