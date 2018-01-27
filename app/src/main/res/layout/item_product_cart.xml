@@ -63,48 +63,28 @@
             android:textColor="@color/second_font"
             android:textSize="12sp" />
 
-        <LinearLayout
-            android:id="@+id/linear_quantity"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_below="@+id/tv_product_price"
-            android:layout_marginTop="5dp"
-            android:layout_marginStart="5dp"
-            android:layout_toEndOf="@+id/iv_product_image"
-            android:background="@color/first_font"
-            android:orientation="horizontal"
-            android:padding="3dp">
-
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginStart="5dp"
-                android:fontFamily="@font/jfflat"
-                android:text="@string/quantity"
-                android:textColor="@color/white"
-                android:textSize="12sp" />
-
-            <EditText
                 android:id="@+id/tv_quantity"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:background="@null"
-                android:digits="0123456789"
                 android:fontFamily="@font/jfflat"
-                android:inputType="number"
-                android:paddingStart="5dp"
-                android:paddingEnd="5dp"
-                android:maxLength="2"
+                android:layout_gravity="center"
+                android:padding="3dp"
+                android:layout_below="@+id/tv_product_price"
+                android:layout_marginTop="5dp"
+                android:layout_marginStart="5dp"
+                android:gravity="center"
+                android:layout_toEndOf="@+id/iv_product_image"
+                android:background="@color/first_font"
                 android:textColor="@color/white"
-                android:textSize="12sp"
-                tools:text="2" />
-        </LinearLayout>
+                android:drawableEnd="@drawable/ic_arrow_drop_down_black_24dp"
+                android:textSize="12sp" />
 
         <View
             android:layout_width="match_parent"
             android:layout_height="1dp"
             android:id="@+id/my_view"
-            android:layout_below="@id/linear_quantity"
+            android:layout_below="@id/tv_quantity"
             android:layout_marginTop="5dp"
             android:background="@color/colorPrimaryDark" />
 

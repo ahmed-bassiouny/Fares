@@ -145,25 +145,21 @@
 
     <TextView
         android:id="@+id/tv_total"
-        android:layout_width="match_parent"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginEnd="8dp"
-        android:layout_marginStart="8dp"
-        android:layout_marginTop="3dp"
-        android:text="@string/total"
-        android:textSize="16sp"
-        android:gravity="center_horizontal"
-        android:textColor="@color/first_font"
+        android:layout_marginTop="8dp"
         android:fontFamily="@font/jfflat"
+        android:text="@string/total"
+        android:textColor="@color/first_font"
+        android:textSize="16sp"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/tv_products_cost" />
 
     <Button
         android:id="@+id/btn_get_product"
         android:layout_width="wrap_content"
         android:layout_height="30dp"
-        android:layout_marginBottom="8dp"
         android:layout_marginEnd="8dp"
         android:layout_marginStart="8dp"
         android:layout_marginTop="16dp"
@@ -173,8 +169,20 @@
         android:text="@string/ask"
         android:textColor="@color/white"
         android:textSize="16sp"
-        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/tv_total" />
+
+    <TextView
+        android:id="@+id/tv_time"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="8dp"
+        android:fontFamily="@font/jfflat"
+        android:text="@string/time"
+        android:textColor="@color/first_font"
+        android:textSize="16sp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/tv_products_cost" />
 </android.support.constraint.ConstraintLayout>

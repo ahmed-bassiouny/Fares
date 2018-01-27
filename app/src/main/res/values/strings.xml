@@ -26,6 +26,7 @@
     <string name="save">حفظ</string>
     <string name="product_price">سعر القطعة : </string>
     <string name="quantity">الكمية : </string>
+    <string name="quantity_pure">الكمية</string>
     <string name="total_price">اجمالى السعر : </string>
     <string name="delete">حذف</string>
     <string name="get_product">طلب المنتجات</string>
@@ -61,6 +62,8 @@
     <string name="add_product">اضافة المنتج</string>
     <string name="section">القسم الخاص بالمنتج</string>
     <string name="my_shop">متجرى</string>
+    <string name="time">الوقت :</string>
+    <string name="add">اضف</string>
     <array name="product_can_be_ready_value">
         <item>24 ساعة</item>
         <item>48 ساعة</item>

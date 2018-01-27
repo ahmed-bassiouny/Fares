@@ -17,15 +17,17 @@ import java.util.ArrayList;
 import java.util.List;
 
 import ahmed.bassiouny.fares.R;
+import ahmed.bassiouny.fares.interfaces.ParseObject;
 import ahmed.bassiouny.fares.model.Product;
 import ahmed.bassiouny.fares.model.ProductCart;
 import ahmed.bassiouny.fares.view.adapter.CartProductAdapter;
+import ahmed.bassiouny.fares.view.dialog.AddEditProductQuantityActivity;
 import ahmed.bassiouny.fares.view.dialog.OrderDeliveryDetailsDialogActivity;
 
 /**
  * A simple {@link Fragment} subclass.
  */
-public class MyProductsCartFragment extends Fragment {
+public class MyProductsCartFragment extends Fragment implements ParseObject<Integer>{
 
     private RecyclerView recyclerView;
     private TextView tvItemCount;
@@ -87,10 +89,15 @@ public class MyProductsCartFragment extends Fragment {
         productCarts.add(productCart1);
         productCarts.add(productCart2);
         productCarts.add(productCart3);
-        CartProductAdapter cartProductAdapter = new CartProductAdapter(productCarts);
+        CartProductAdapter cartProductAdapter = new CartProductAdapter(this,productCarts);
         recyclerView.setAdapter(cartProductAdapter);
         tvItemCount.append("4 قطع");
         tvTotal.append("540 جنية");
 
+    }
+
+    @Override
+    public void parse(Integer integer) {
+        startActivity(new Intent(getContext(), AddEditProductQuantityActivity.class));
     }
 }

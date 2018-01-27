@@ -1,5 +1,7 @@
 package ahmed.bassiouny.fares.view.adapter;
 
+import android.app.Activity;
+import android.support.v4.app.Fragment;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -11,6 +13,7 @@ import android.widget.TextView;
 import java.util.List;
 
 import ahmed.bassiouny.fares.R;
+import ahmed.bassiouny.fares.interfaces.ParseObject;
 import ahmed.bassiouny.fares.model.Product;
 import ahmed.bassiouny.fares.model.ProductCart;
 
@@ -21,9 +24,11 @@ import ahmed.bassiouny.fares.model.ProductCart;
 public class CartProductAdapter extends RecyclerView.Adapter<CartProductAdapter.MyViewHolder> {
 
     private List<ProductCart> productCarts;
+    private ParseObject parseObject;
 
-    public CartProductAdapter(List<ProductCart> productCarts) {
+    public CartProductAdapter(Fragment fragment, List<ProductCart> productCarts) {
         this.productCarts = productCarts;
+        this.parseObject = (ParseObject) fragment;
     }
 
     public class MyViewHolder extends RecyclerView.ViewHolder {
@@ -32,7 +37,7 @@ public class CartProductAdapter extends RecyclerView.Adapter<CartProductAdapter.
         private TextView tvProductName;
         private TextView tvShopName;
         private TextView tvProductPrice;
-        private EditText tvQuantity;
+        private TextView tvQuantity;
         private TextView tvTotal;
         private TextView btnDelete;
 
@@ -59,13 +64,19 @@ public class CartProductAdapter extends RecyclerView.Adapter<CartProductAdapter.
     @Override
     public void onBindViewHolder(final MyViewHolder holder, final int position) {
         ProductCart productCart = productCarts.get(position);
-        Product product = productCart.getProduct();
+        final Product product = productCart.getProduct();
         holder.ivProductImage.setImageResource(product.getPhoto());
         holder.tvProductName.setText(product.getName());
         holder.tvProductPrice.append(product.getPrice());
         holder.tvShopName.append(productCart.getShopName());
-        holder.tvQuantity.append(productCart.getQuantity());
+        holder.tvQuantity.append("الكمية "+productCart.getQuantity());
         holder.tvTotal.append(productCart.getTotal());
+        holder.tvQuantity.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+             parseObject.parse(5);
+            }
+        });
     }
 
     @Override

@@ -23,8 +23,10 @@
             android:theme="@style/AppTheme.NoActionBar">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
+
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
+            ad
         </activity>
         <activity
             android:name=".view.activities.EditProfileActivity"
@@ -40,12 +42,13 @@
             android:theme="@style/AppThemeDialog" />
         <activity
             android:name=".view.activities.CreateProductActivity"
-            android:theme="@style/AppTheme.NoActionBar">
-        </activity>
+            android:theme="@style/AppTheme.NoActionBar"></activity>
         <activity
             android:name=".view.activities.MyProductActivity"
-            android:theme="@style/AppTheme.NoActionBar">
-        </activity>
+            android:theme="@style/AppTheme.NoActionBar"></activity>
+        <activity
+            android:name=".view.dialog.AddEditProductQuantityActivity"
+            android:theme="@style/AppThemeDialog"></activity>
     </application>
 
 </manifest>
