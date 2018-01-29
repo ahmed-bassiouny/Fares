@@ -64,6 +64,9 @@
     <string name="my_shop">متجرى</string>
     <string name="time">الوقت :</string>
     <string name="add">اضف</string>
+    <string name="login">تسجيل الدخول</string>
+    <string name="facebook_login">الدخول عن طريق الفيسبوك</string>
+    <string name="gmail_login">الدخول عن طريق جوجل</string>
     <array name="product_can_be_ready_value">
         <item>24 ساعة</item>
         <item>48 ساعة</item>

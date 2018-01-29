@@ -1,0 +1,55 @@
+{
+  "project_info": {
+    "project_number": "164651264003",
+    "firebase_url": "https://fares-ac4ee.firebaseio.com",
+    "project_id": "fares-ac4ee",
+    "storage_bucket": "fares-ac4ee.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:164651264003:android:dc2d6bdd5ab96828",
+        "android_client_info": {
+          "package_name": "ahmed.bassiouny.fares"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "164651264003-1u7dje1eci1vq4icrm3sl39a5ffgaquq.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "ahmed.bassiouny.fares",
+            "certificate_hash": "9d849810e7649df1c78b9aa421dd04fff1c5b45d"
+          }
+        },
+        {
+          "client_id": "164651264003-c8ii7b6nnik07okijdicgh5uaitheq4h.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDl90XlnDCTV4ArILIzpeb8Im3FiYejQhA"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 2,
+          "other_platform_oauth_client": [
+            {
+              "client_id": "164651264003-c8ii7b6nnik07okijdicgh5uaitheq4h.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
