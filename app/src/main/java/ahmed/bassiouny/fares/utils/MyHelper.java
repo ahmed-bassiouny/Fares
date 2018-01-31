@@ -28,4 +28,10 @@ public class MyHelper {
             fragmentTransaction.addToBackStack("back");
         fragmentTransaction.commit();
     }
+
+    public static String getValueFromString(String item) {
+        if (item == null)
+            return "";
+        return item;
+    }
 }

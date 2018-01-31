@@ -24,6 +24,9 @@ import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.auth.GoogleAuthProvider;
 
 import ahmed.bassiouny.fares.R;
+import ahmed.bassiouny.fares.api.config.BaseResponseInterface;
+import ahmed.bassiouny.fares.api.request.RequestAndResponse;
+import ahmed.bassiouny.fares.model.User;
 import ahmed.bassiouny.fares.utils.MyProgressBar;
 
 public class LoginActivity extends AppCompatActivity implements View.OnClickListener{
@@ -83,8 +86,19 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
                         if (task.isSuccessful()) {
 
                             FirebaseUser user = mAuth.getCurrentUser();
-                            Toast.makeText(LoginActivity.this, user.getUid(), Toast.LENGTH_SHORT).show();
-                            MyProgressBar.hide();
+                            RequestAndResponse.loginUser(user.getUid(), user.getDisplayName(), user.getEmail(), "", new BaseResponseInterface<User>() {
+                                @Override
+                                public void onSuccess(User user) {
+                                    Toast.makeText(LoginActivity.this, user.getEmail(), Toast.LENGTH_SHORT).show();
+                                    MyProgressBar.hide();
+                                }
+
+                                @Override
+                                public void onFailed(String errorMessage) {
+                                    Toast.makeText(LoginActivity.this, errorMessage, Toast.LENGTH_SHORT).show();
+                                    MyProgressBar.hide();
+                                }
+                            });
                         } else {
 
                             Toast.makeText(LoginActivity.this, task.getException().getLocalizedMessage(), Toast.LENGTH_SHORT).show();
