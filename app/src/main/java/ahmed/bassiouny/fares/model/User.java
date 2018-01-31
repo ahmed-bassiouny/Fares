@@ -28,6 +28,8 @@ public class User {
     private String city;
     @SerializedName("profile_img")
     private String apiToken;
+    @SerializedName("has_shop")
+    private boolean hasShop;
 
     public int getId() {
         return id;
@@ -63,5 +65,9 @@ public class User {
 
     public String getApiToken() {
         return MyHelper.getValueFromString(apiToken);
+    }
+
+    public boolean isHasShop() {
+        return hasShop;
     }
 }

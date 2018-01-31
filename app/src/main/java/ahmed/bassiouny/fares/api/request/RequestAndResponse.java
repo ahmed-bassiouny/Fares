@@ -9,7 +9,11 @@ import ahmed.bassiouny.fares.api.config.ApiConfig;
 import ahmed.bassiouny.fares.api.config.BaseResponseInterface;
 import ahmed.bassiouny.fares.api.request.BaseRequestInterface;
 import ahmed.bassiouny.fares.api.response.LoginResponse;
+import ahmed.bassiouny.fares.api.response.MyShopResponse;
+import ahmed.bassiouny.fares.api.response.ParentResponse;
+import ahmed.bassiouny.fares.model.Shop;
 import ahmed.bassiouny.fares.model.User;
+import ahmed.bassiouny.fares.utils.UserSharedPref;
 import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
@@ -49,6 +53,36 @@ public class RequestAndResponse {
 
             @Override
             public void onFailure(Call<LoginResponse> call, Throwable t) {
+                anInterface.onFailed(errorConnection);
+            }
+        });
+    }
+    public static void createShop(Context context,String phone,final BaseResponseInterface<ParentResponse> anInterface){
+        Call<ParentResponse> response = baseRequestInterface.createShop(UserSharedPref.getTokenWithHeader(context),phone);
+        response.enqueue(new Callback<ParentResponse>() {
+            @Override
+            public void onResponse(Call<ParentResponse> call, Response<ParentResponse> response) {
+                checkValidResult(response.code(),response.body().getStatus(),
+                        response.body(),response.body().getMessage(),anInterface);
+            }
+
+            @Override
+            public void onFailure(Call<ParentResponse> call, Throwable t) {
+                anInterface.onFailed(errorConnection);
+            }
+        });
+    }
+    public static void getMyShop(Context context,final BaseResponseInterface<List<Shop>> anInterface){
+        Call<MyShopResponse> response = baseRequestInterface.getMyShop(UserSharedPref.getTokenWithHeader(context));
+        response.enqueue(new Callback<MyShopResponse>() {
+            @Override
+            public void onResponse(Call<MyShopResponse> call, Response<MyShopResponse> response) {
+                checkValidResult(response.code(),response.body().getStatus(),
+                        response.body().getShops(),response.body().getMessage(),anInterface);
+            }
+
+            @Override
+            public void onFailure(Call<MyShopResponse> call, Throwable t) {
                 anInterface.onFailed(errorConnection);
             }
         });

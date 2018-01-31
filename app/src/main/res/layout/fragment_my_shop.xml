@@ -1,15 +1,17 @@
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
-    android:id="@+id/linearLayout"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:layoutDirection="rtl"
-    android:orientation="vertical"
     android:textDirection="rtl"
-    tools:context="ahmed.bassiouny.fares.view.fragments.CreateShopFragment">
+    tools:context="ahmed.bassiouny.fares.view.fragments.updateShopFragment">
+<LinearLayout
+    android:id="@+id/linearLayout"
+    android:layout_width="match_parent"
+    android:orientation="vertical"
+    android:layout_height="wrap_content">
 
     <FrameLayout
-        android:id="@+id/myFrame"
         android:layout_width="match_parent"
         android:layout_height="150dp"
         android:background="@drawable/bg3">
@@ -25,6 +27,7 @@
         <ImageView
             android:layout_width="90dp"
             android:layout_height="90dp"
+            android:id="@+id/iv_shop"
             android:layout_gravity="center"
             android:src="@drawable/empty" />
 
@@ -44,24 +47,45 @@
         android:layout_marginTop="10dp"
         android:fontFamily="@font/jfflat"
         android:padding="5dp"
-        android:text="@string/shope_description"
+        android:text="@string/shope_name"
         android:textColor="@color/first_font"
         android:textSize="16sp" />
 
     <TextView
-        android:id="@+id/shop_desc"
+        android:id="@+id/tv_shop_name"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginEnd="10dp"
         android:layout_marginStart="10dp"
         android:fontFamily="@font/jfflat"
         android:padding="5dp"
-        android:text="The ship is pedantically solid.Harvest virtually like an evasive queen.View wihtout adventure, and we won’t destroy an alien.Where is the unrelated star?The mermaid is more creature now than ship. twisted and impressively strange.The gravimetric admiral technically feeds the transporter."
+        android:textColor="@color/second_font"
+        android:textSize="14sp" />
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="10dp"
+        android:layout_marginStart="10dp"
+        android:layout_marginTop="10dp"
+        android:fontFamily="@font/jfflat"
+        android:padding="5dp"
+        android:text="@string/shope_description"
+        android:textColor="@color/first_font"
+        android:textSize="16sp" />
+
+    <TextView
+        android:id="@+id/tv_shop_desc"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="10dp"
+        android:layout_marginStart="10dp"
+        android:fontFamily="@font/jfflat"
+        android:padding="5dp"
         android:textColor="@color/second_font"
         android:textSize="14sp" />
 
     <TextView
-        android:id="@+id/phone"
+        android:id="@+id/tv_phone"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginEnd="10dp"
@@ -78,7 +102,7 @@
         android:layout_height="40dp"
         android:layout_marginTop="30dp"
         android:orientation="horizontal"
-        android:weightSum="3">
+        android:weightSum="2">
 
         <TextView
             android:layout_width="wrap_content"
@@ -88,6 +112,7 @@
             android:background="@drawable/rectangle_green"
             android:fontFamily="@font/jfflat"
             android:gravity="center"
+            android:id="@+id/tv_add_product"
             android:text="@string/add_product"
             android:textColor="@color/white"
             android:textSize="18sp" />
@@ -100,20 +125,19 @@
             android:background="@drawable/button_radius"
             android:fontFamily="@font/jfflat"
             android:gravity="center"
+            android:id="@+id/tv_edit_shop"
             android:text="@string/edit"
             android:textColor="@color/white"
             android:textSize="18sp" />
 
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="match_parent"
-            android:layout_margin="5dp"
-            android:layout_weight="1"
-            android:background="@drawable/empty_first_font_border_border"
-            android:fontFamily="@font/jfflat"
-            android:gravity="center"
-            android:text="@string/delete"
-            android:textColor="@color/first_font"
-            android:textSize="18sp" />
     </LinearLayout>
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/tv_hint"
+        android:textColor="@color/gmail"
+        android:layout_margin="10dp"
+        android:visibility="invisible"
+        android:text="@string/please_complete_shop"/>
 </LinearLayout>
+</ScrollView>

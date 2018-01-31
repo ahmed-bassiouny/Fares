@@ -49,22 +49,8 @@ public class AllShopFragment extends Fragment {
 
         recyclerView = view.findViewById(R.id.recycler_view);
         recyclerView.setLayoutManager(new GridLayoutManager(getContext(),2));
-        setFakeData();
     }
 
-    private void setFakeData() {
-        List<Shop> shops= new ArrayList<>();
-        Shop shop1 = new Shop(1,"ابو حسن للمفروشات","الوصف الخاص بالمتجر الخاص بالعميل الذى تم انشاءه",R.drawable.p1);
-        shops.add(shop1);
-        Shop shop2 = new Shop(1,"كوكى مان","الوصف الخاص بالمتجر الخاص بالعميل الذى تم انشاءه",R.drawable.p2);
-        shops.add(shop2);
-        Shop shop3 = new Shop(1,"ميكس للاحذية","الوصف الخاص بالمتجر الخاص بالعميل الذى تم انشاءه",R.drawable.p3);
-        shops.add(shop3);
-        Shop shop4 = new Shop(1,"التوحيد والنور","الوصف الخاص بالمتجر الخاص بالعميل الذى تم انشاءه",R.drawable.p4);
-        shops.add(shop4);
-        ShopAdapter sectionOfShopAdapter = new ShopAdapter(getContext(),shops);
-        recyclerView.setAdapter(sectionOfShopAdapter);
-    }
 
 }
 

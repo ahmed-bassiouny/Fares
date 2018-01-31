@@ -28,6 +28,7 @@ import ahmed.bassiouny.fares.api.config.BaseResponseInterface;
 import ahmed.bassiouny.fares.api.request.RequestAndResponse;
 import ahmed.bassiouny.fares.model.User;
 import ahmed.bassiouny.fares.utils.MyProgressBar;
+import ahmed.bassiouny.fares.utils.UserSharedPref;
 
 public class LoginActivity extends AppCompatActivity implements View.OnClickListener{
 
@@ -90,6 +91,7 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
                                 @Override
                                 public void onSuccess(User user) {
                                     Toast.makeText(LoginActivity.this, user.getEmail(), Toast.LENGTH_SHORT).show();
+                                    UserSharedPref.setUserInfo(LoginActivity.this,user.getApiToken(),user.isHasShop());
                                     MyProgressBar.hide();
                                 }
 

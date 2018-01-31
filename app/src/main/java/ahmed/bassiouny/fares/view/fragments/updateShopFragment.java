@@ -12,26 +12,26 @@ import ahmed.bassiouny.fares.R;
 /**
  * A simple {@link Fragment} subclass.
  */
-public class CreateShopFragment extends Fragment {
+public class updateShopFragment extends Fragment {
 
 
-    private static CreateShopFragment createShopFragment;
+    private static updateShopFragment updateShopFragment;
 
-    public CreateShopFragment() {
+    public updateShopFragment() {
         // Required empty public constructor
     }
 
-    public static CreateShopFragment newInstance() {
-        if (createShopFragment == null)
-            createShopFragment = new CreateShopFragment();
-        return createShopFragment;
+    public static updateShopFragment newInstance() {
+        if (updateShopFragment == null)
+            updateShopFragment = new updateShopFragment();
+        return updateShopFragment;
     }
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_create_shop, container, false);
+        return inflater.inflate(R.layout.fragment_update_shop, container, false);
     }
 
 }

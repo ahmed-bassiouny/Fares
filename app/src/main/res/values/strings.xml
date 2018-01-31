@@ -67,6 +67,12 @@
     <string name="login">تسجيل الدخول</string>
     <string name="facebook_login">الدخول عن طريق الفيسبوك</string>
     <string name="gmail_login">الدخول عن طريق جوجل</string>
+    <string name="send_code">ارسال كود التفعيل</string>
+    <string name="code">كود التفعيل</string>
+    <string name="resend_code">اعادة ارسال كود التفعيل</string>
+    <string name="invalid_phone">رقم الهاتف غير صحيح</string>
+    <string name="try_again">حدث خطا ما برجاء المحاولة فى وقت اخر</string>
+    <string name="please_complete_shop">من فضلك قم باكمال بيانات المتجر</string>
     <array name="product_can_be_ready_value">
         <item>24 ساعة</item>
         <item>48 ساعة</item>

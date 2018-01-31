@@ -6,7 +6,7 @@
     android:layoutDirection="rtl"
     android:orientation="vertical"
     android:textDirection="rtl"
-    tools:context="ahmed.bassiouny.fares.view.fragments.CreateShopFragment">
+    tools:context="ahmed.bassiouny.fares.view.fragments.updateShopFragment">
 
     <FrameLayout
         android:id="@+id/myFrame"

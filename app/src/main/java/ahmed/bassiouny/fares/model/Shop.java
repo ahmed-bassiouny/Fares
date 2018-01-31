@@ -1,35 +1,49 @@
 package ahmed.bassiouny.fares.model;
 
+import com.google.gson.annotations.SerializedName;
+
+import ahmed.bassiouny.fares.utils.MyHelper;
+
 /**
  * Created by bassiouny on 12/01/18.
  */
 
 public class Shop {
-    private int id;
-    private String name;
-    private String description;
-    private int photo;
 
-    public Shop(int id, String name,String description,int photo) {
-        this.id = id;
-        this.name = name;
-        this.description = description;
-        this.photo = photo;
-    }
+    @SerializedName("id")
+    private int id;
+    @SerializedName("user_id")
+    private int userId;
+    @SerializedName("name")
+    private String name;
+    @SerializedName("description")
+    private String description;
+    @SerializedName("profile_img")
+    private String photo;
+    @SerializedName("phone")
+    private String phone;
 
     public int getId() {
         return id;
     }
 
+    public int getUserId() {
+        return userId;
+    }
+
     public String getName() {
-        return name;
+        return MyHelper.getValueFromString(name);
     }
 
     public String getDescription() {
-        return description;
+        return MyHelper.getValueFromString(description);
     }
 
-    public int getPhoto() {
-        return photo;
+    public String getPhoto() {
+        return MyHelper.getValueFromString(photo);
+    }
+
+    public String getPhone() {
+        return MyHelper.getValueFromString(phone);
     }
 }
