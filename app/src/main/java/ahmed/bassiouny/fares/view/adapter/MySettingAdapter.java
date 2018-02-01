@@ -1,6 +1,5 @@
 package ahmed.bassiouny.fares.view.adapter;
 
-import android.content.Context;
 import android.support.v4.app.Fragment;
 import android.support.v7.widget.CardView;
 import android.support.v7.widget.RecyclerView;
@@ -40,7 +39,7 @@ public class MySettingAdapter extends RecyclerView.Adapter<MySettingAdapter.MyVi
     @Override
     public MyViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
         View itemView = LayoutInflater.from(parent.getContext())
-                .inflate(R.layout.item_section_of_shop_adapter, parent, false);
+                .inflate(R.layout.item_my_section_of_shop_adapter, parent, false);
         return new MyViewHolder(itemView);
     }
 

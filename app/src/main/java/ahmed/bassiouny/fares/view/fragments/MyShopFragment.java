@@ -22,6 +22,7 @@ import ahmed.bassiouny.fares.utils.MyDialog;
 import ahmed.bassiouny.fares.utils.MyHelper;
 import ahmed.bassiouny.fares.utils.MyIntentKey;
 import ahmed.bassiouny.fares.view.activities.CreateProductActivity;
+import ahmed.bassiouny.fares.view.activities.MySectionsOfShopActivity;
 
 /**
  * A simple {@link Fragment} subclass.
@@ -88,12 +89,18 @@ public class MyShopFragment extends Fragment {
         tvViewproducts.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-
+                if(shop == null)
+                    return;
+                Intent intent = new Intent(getContext(),MySectionsOfShopActivity.class);
+                intent.putExtra(MyIntentKey.SHOP_ID,shop.getId());
+                startActivity(intent);
             }
         });
         tvAddProduct.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                if(shop == null)
+                    return;
                 Intent intent = new Intent(getContext(),CreateProductActivity.class);
                 intent.putExtra(MyIntentKey.SHOP_ID,shop.getId());
                 startActivity(intent);

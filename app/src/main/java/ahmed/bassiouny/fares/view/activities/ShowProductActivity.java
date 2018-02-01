@@ -51,7 +51,7 @@ public class ShowProductActivity extends MyToolbar {
 
     private void setProduct() {
         product = getIntent().getParcelableExtra(MyIntentKey.PRODUCT);
-        myProduct = UserSharedPref.getUserId(this) == 0;
+        myProduct = UserSharedPref.getUserId(this) == product.getOwnerId();
         if (product == null) {
             Toast.makeText(this, R.string.try_again, Toast.LENGTH_SHORT).show();
             finish();

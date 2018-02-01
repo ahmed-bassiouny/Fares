@@ -1,7 +1,6 @@
 package ahmed.bassiouny.fares.view.adapter;
 
 import android.content.Context;
-import android.content.Intent;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -12,9 +11,7 @@ import android.widget.TextView;
 import java.util.List;
 
 import ahmed.bassiouny.fares.R;
-import ahmed.bassiouny.fares.model.Section;
 import ahmed.bassiouny.fares.model.Shop;
-import ahmed.bassiouny.fares.view.activities.SectionsOfShopActivity;
 
 /**
  * Created by bassiouny on 11/01/18.

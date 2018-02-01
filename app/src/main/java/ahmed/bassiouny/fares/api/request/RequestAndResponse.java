@@ -143,4 +143,20 @@ public class RequestAndResponse {
             }
         });
     }
+    public static void getShop(Context context,int shopId,final BaseResponseInterface<List<Section>> anInterface){
+        Call<SectionsResponse> response = baseRequestInterface.getShop(UserSharedPref.getTokenWithHeader(context),shopId);
+        response.enqueue(new Callback<SectionsResponse>() {
+            @Override
+            public void onResponse(Call<SectionsResponse> call, Response<SectionsResponse> response) {
+                checkValidResult(response.code(),response.body().getStatus(),
+                        response.body().getSections(),response.body().getMessage(),anInterface);
+            }
+
+            @Override
+            public void onFailure(Call<SectionsResponse> call, Throwable t) {
+                anInterface.onFailed(errorConnection);
+            }
+        });
+    }
+
 }

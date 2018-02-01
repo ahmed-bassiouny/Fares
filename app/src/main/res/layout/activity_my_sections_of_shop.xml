@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    tools:context="ahmed.bassiouny.fares.view.activities.SectionsOfShopActivity">
+    tools:context="ahmed.bassiouny.fares.view.activities.MySectionsOfShopActivity">
 
     <include
         layout="@layout/my_toolbar"

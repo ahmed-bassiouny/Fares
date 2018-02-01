@@ -80,6 +80,7 @@
     <string name="shop_updated">تم تعديل متجرك بنجاح</string>
     <string name="product_updated">تم تعديل منتجك بنجاح</string>
     <string name="view_my_products">عرض منتجاتى</string>
+    <string name="view_my_sections">عرض اقسامى</string>
     <string name="hour">ساعة</string>
     <string name="eg">جنية</string>
     <array name="product_can_be_ready_value">

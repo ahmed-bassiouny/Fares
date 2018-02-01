@@ -26,6 +26,7 @@ public interface BaseRequestInterface {
     String UPDATE_SHOP = "shop/update";
     String SECTION = "category/get-all";
     String CREATE_PRODUCT = "product/create";
+    String  GET_SHOP = "shop/show";
 
     @FormUrlEncoded
     @POST(LOGIN)
@@ -67,4 +68,10 @@ public interface BaseRequestInterface {
                                           @Field("wholesale_start_from") String wholesaleCount,
                                           @Field("available_pieces") String availablePieces,
                                           @Field("order_ready_at") String readyAt);
+
+
+    @FormUrlEncoded
+    @POST(GET_SHOP)
+    Call<SectionsResponse> getShop(@Header(AUTHORIZATION) String token,
+                                      @Field("shop_id") int shopId);
 }
