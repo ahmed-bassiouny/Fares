@@ -21,22 +21,10 @@ public class AllProductActivity extends MyToolbar {
         setContentView(R.layout.activity_all_product);
         setupMyToolbar(true,true,"المنتجات");
         findViewById();
-        setFakeData();
     }
     private void findViewById(){
         recyclerView = findViewById(R.id.recycler_view);
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
     }
-    private void  setFakeData(){
 
-        List<Product> products = new ArrayList<>();
-        Product product1 = new Product("بنطلون","وصف عن البنطلون دة","350 جنية",R.drawable.p3);
-        products.add(product1);
-        Product product2 = new Product("بنطلون","وصف عن البنطلون دة","350 جنية",R.drawable.p2);
-        products.add(product2);
-        Product product3 = new Product("بنطلون","وصف عن البنطلون دة","350 جنية",R.drawable.p1);
-        products.add(product3);
-        AllProductAdapter allProductAdapter = new AllProductAdapter(this,products);
-        recyclerView.setAdapter(allProductAdapter);
-    }
 }

@@ -1,6 +1,7 @@
 package ahmed.bassiouny.fares.api.request;
 
 import ahmed.bassiouny.fares.api.response.LoginResponse;
+import ahmed.bassiouny.fares.api.response.MyProductResponse;
 import ahmed.bassiouny.fares.api.response.MyShopListResponse;
 import ahmed.bassiouny.fares.api.response.MyShopResponse;
 import ahmed.bassiouny.fares.api.response.ParentResponse;
@@ -24,6 +25,7 @@ public interface BaseRequestInterface {
     String MY_SHOP = "shop/my-shops";
     String UPDATE_SHOP = "shop/update";
     String SECTION = "category/get-all";
+    String CREATE_PRODUCT = "product/create";
 
     @FormUrlEncoded
     @POST(LOGIN)
@@ -51,4 +53,18 @@ public interface BaseRequestInterface {
 
     @GET(SECTION)
     Call<SectionsResponse> getSections();
+
+
+    @FormUrlEncoded
+    @POST(CREATE_PRODUCT)
+    Call<MyProductResponse> createProduct(@Header(AUTHORIZATION) String token,
+                                          @Field("shop_id") int shopId,
+                                          @Field("category_id") int sectionId,
+                                          @Field("name") String name,
+                                          @Field("description") String decscription,
+                                          @Field("price") String price,
+                                          @Field("wholesale_price") String wholesalePrice,
+                                          @Field("wholesale_start_from") String wholesaleCount,
+                                          @Field("available_pieces") String availablePieces,
+                                          @Field("order_ready_at") String readyAt);
 }

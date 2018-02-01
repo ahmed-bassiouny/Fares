@@ -28,6 +28,6 @@ public class ProductCart {
     }
 
     public String getTotal() {
-        return String.valueOf(quantity * Float.parseFloat(product.getPrice()));
+        return String.valueOf(quantity * 0);
     }
 }

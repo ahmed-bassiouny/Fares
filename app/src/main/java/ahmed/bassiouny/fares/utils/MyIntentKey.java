@@ -7,4 +7,5 @@ package ahmed.bassiouny.fares.utils;
 public class MyIntentKey {
 
     public static final String SHOP = "shop";
+    public static final String SHOP_ID = "shop_id";
 }

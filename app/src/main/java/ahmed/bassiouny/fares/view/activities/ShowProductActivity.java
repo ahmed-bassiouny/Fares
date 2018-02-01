@@ -35,30 +35,8 @@ public class ShowProductActivity extends MyToolbar {
         setupMyToolbar(true,true,"بنطلون جينز");
         findViewById();
         onClick();
-        loadFakeData();
     }
 
-    private void loadFakeData() {
-        List<Product> products = new ArrayList<>();
-        Product product1 = new Product("بنطلون","وصف عن البنطلون دة","350 جنية",R.drawable.p3);
-        products.add(product1);
-        Product product2 = new Product("بنطلون","وصف عن البنطلون دة","350 جنية",R.drawable.p2);
-        products.add(product2);
-        Product product3 = new Product("بنطلون","وصف عن البنطلون دة","350 جنية",R.drawable.p1);
-        products.add(product3);
-        ProductRelatedToAdapter productRelatedToAdapter = new ProductRelatedToAdapter(products);
-        recyclerView.setAdapter(productRelatedToAdapter);
-        tvDescription.setText("العلامة التجارية ميلانو");
-        tvDescription.append("\n");
-        tvDescription.append("اللون كحلى");
-        tvDescription.append("\n");
-        tvDescription.append("الخامة جيدة جدا");
-        setMainImageFromSubImage(ivSub1);
-        setMainImageFromSubImage(ivSub2);
-        setMainImageFromSubImage(ivSub3);
-        setMainImageFromSubImage(ivSub4);
-
-    }
 
     private void onClick() {
         btnBuy.setOnClickListener(new View.OnClickListener() {

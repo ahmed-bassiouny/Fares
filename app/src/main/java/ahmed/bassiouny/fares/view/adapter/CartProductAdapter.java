@@ -65,9 +65,6 @@ public class CartProductAdapter extends RecyclerView.Adapter<CartProductAdapter.
     public void onBindViewHolder(final MyViewHolder holder, final int position) {
         ProductCart productCart = productCarts.get(position);
         final Product product = productCart.getProduct();
-        holder.ivProductImage.setImageResource(product.getPhoto());
-        holder.tvProductName.setText(product.getName());
-        holder.tvProductPrice.append(product.getPrice());
         holder.tvShopName.append(productCart.getShopName());
         holder.tvQuantity.append("الكمية "+productCart.getQuantity());
         holder.tvTotal.append(productCart.getTotal());

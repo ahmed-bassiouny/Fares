@@ -24,7 +24,6 @@ public class MyProductActivity extends MyToolbar implements MyProductInterface {
         setContentView(R.layout.activity_all_product);
         setupMyToolbar(true, true, "منتجاتى");
         findViewById();
-        setFakeData();
     }
 
     private void findViewById() {
@@ -32,18 +31,6 @@ public class MyProductActivity extends MyToolbar implements MyProductInterface {
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
     }
 
-    private void setFakeData() {
-
-        List<Product> products = new ArrayList<>();
-        Product product1 = new Product("بنطلون", "وصف عن البنطلون دة", "350 جنية", R.drawable.p3);
-        products.add(product1);
-        Product product2 = new Product("بنطلون", "وصف عن البنطلون دة", "350 جنية", R.drawable.p2);
-        products.add(product2);
-        Product product3 = new Product("بنطلون", "وصف عن البنطلون دة", "350 جنية", R.drawable.p1);
-        products.add(product3);
-        MyProductAdapter allProductAdapter = new MyProductAdapter(this, products);
-        recyclerView.setAdapter(allProductAdapter);
-    }
 
     @Override
     public void operationProduct(Product product, int operation) {

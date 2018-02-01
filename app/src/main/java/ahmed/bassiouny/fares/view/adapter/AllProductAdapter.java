@@ -54,15 +54,7 @@ public class AllProductAdapter extends RecyclerView.Adapter<AllProductAdapter.My
     @Override
     public void onBindViewHolder(final MyViewHolder holder, final int position) {
         Product product = products.get(position);
-        holder.ivProductImage.setImageResource(product.getPhoto());
-        holder.tvProductName.setText(product.getName());
-        holder.tvProductPrice.setText(product.getPrice());
-        holder.ivMore.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                context.startActivity(new Intent(context, ShowProductActivity.class));
-            }
-        });
+
     }
 
     @Override

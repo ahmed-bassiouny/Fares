@@ -75,26 +75,8 @@ public class MyProductsCartFragment extends Fragment implements ParseObject<Inte
     @Override
     public void onResume() {
         super.onResume();
-        setFakeData();
     }
 
-    private void setFakeData() {
-        Product product1 = new Product("بنطلون","وصف عن البنطلون دة","350",R.drawable.p3);
-        Product product2 = new Product("بنطلون","وصف عن البنطلون دة","350",R.drawable.p2);
-        Product product3 = new Product("بنطلون","وصف عن البنطلون دة","350",R.drawable.p1);
-        ProductCart productCart1 = new ProductCart(product1,"السعيد للاحذية",2);
-        ProductCart productCart2 = new ProductCart(product2,"الحمد للمفروشات",1);
-        ProductCart productCart3 = new ProductCart(product3,"الفارس للماكولات",1);
-        List<ProductCart> productCarts = new ArrayList<>();
-        productCarts.add(productCart1);
-        productCarts.add(productCart2);
-        productCarts.add(productCart3);
-        CartProductAdapter cartProductAdapter = new CartProductAdapter(this,productCarts);
-        recyclerView.setAdapter(cartProductAdapter);
-        tvItemCount.append("4 قطع");
-        tvTotal.append("540 جنية");
-
-    }
 
     @Override
     public void parse(Integer integer) {

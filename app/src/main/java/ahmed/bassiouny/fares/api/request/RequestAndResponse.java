@@ -7,10 +7,12 @@ import java.util.List;
 import ahmed.bassiouny.fares.api.config.ApiConfig;
 import ahmed.bassiouny.fares.api.config.BaseResponseInterface;
 import ahmed.bassiouny.fares.api.response.LoginResponse;
+import ahmed.bassiouny.fares.api.response.MyProductResponse;
 import ahmed.bassiouny.fares.api.response.MyShopListResponse;
 import ahmed.bassiouny.fares.api.response.MyShopResponse;
 import ahmed.bassiouny.fares.api.response.ParentResponse;
 import ahmed.bassiouny.fares.api.response.SectionsResponse;
+import ahmed.bassiouny.fares.model.Product;
 import ahmed.bassiouny.fares.model.Section;
 import ahmed.bassiouny.fares.model.Shop;
 import ahmed.bassiouny.fares.model.User;
@@ -117,6 +119,26 @@ public class RequestAndResponse {
 
             @Override
             public void onFailure(Call<SectionsResponse> call, Throwable t) {
+                anInterface.onFailed(errorConnection);
+            }
+        });
+    }
+
+    public static void createProduct(Context context, Product product, final BaseResponseInterface<Product> anInterface){
+        Call<MyProductResponse> response = baseRequestInterface.createProduct(
+                UserSharedPref.getTokenWithHeader(context)
+                ,product.getShopId(),product.getSectionId(),product.getName()
+                ,product.getDescription(),product.getPrice(),product.getWholesalePrice()
+                ,product.getWholesaleCount(),product.getAvailablePieces(),product.getOrderReadyAt());
+        response.enqueue(new Callback<MyProductResponse>() {
+            @Override
+            public void onResponse(Call<MyProductResponse> call, Response<MyProductResponse> response) {
+                checkValidResult(response.code(),response.body().getStatus(),
+                        response.body().getProduct(),response.body().getMessage(),anInterface);
+            }
+
+            @Override
+            public void onFailure(Call<MyProductResponse> call, Throwable t) {
                 anInterface.onFailed(errorConnection);
             }
         });

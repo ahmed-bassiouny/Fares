@@ -63,9 +63,6 @@ public class MyProductAdapter extends RecyclerView.Adapter<MyProductAdapter.MyVi
     @Override
     public void onBindViewHolder(final MyViewHolder holder, final int position) {
         final Product product = products.get(position);
-        holder.ivProductImage.setImageResource(product.getPhoto());
-        holder.tvProductName.setText(product.getName());
-        holder.tvProductDescription.setText(product.getDescription());
         holder.myContainer.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
