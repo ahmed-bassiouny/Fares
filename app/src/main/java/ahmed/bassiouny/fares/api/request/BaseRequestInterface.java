@@ -4,6 +4,7 @@ import ahmed.bassiouny.fares.api.response.LoginResponse;
 import ahmed.bassiouny.fares.api.response.MyShopListResponse;
 import ahmed.bassiouny.fares.api.response.MyShopResponse;
 import ahmed.bassiouny.fares.api.response.ParentResponse;
+import ahmed.bassiouny.fares.api.response.SectionsResponse;
 import retrofit2.Call;
 import retrofit2.http.Field;
 import retrofit2.http.FormUrlEncoded;
@@ -22,6 +23,7 @@ public interface BaseRequestInterface {
     String CREATE_SHOP = "shop/create";
     String MY_SHOP = "shop/my-shops";
     String UPDATE_SHOP = "shop/update";
+    String SECTION = "category/get-all";
 
     @FormUrlEncoded
     @POST(LOGIN)
@@ -45,4 +47,8 @@ public interface BaseRequestInterface {
                                       @Field("name") String shopName,
                                       @Field("description") String shopDescription,
                                       @Field("phone") String phone);
+
+
+    @GET(SECTION)
+    Call<SectionsResponse> getSections();
 }

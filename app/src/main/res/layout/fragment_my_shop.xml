@@ -133,6 +133,22 @@
     </LinearLayout>
     <TextView
         android:layout_width="wrap_content"
+        android:layout_height="match_parent"
+        android:layout_marginTop="10dp"
+        android:layout_weight="1"
+        android:background="@drawable/empty_first_font_border_border"
+        android:fontFamily="@font/jfflat"
+        android:layout_gravity="center"
+        android:paddingStart="10dp"
+        android:paddingEnd="10dp"
+        android:paddingTop="5dp"
+        android:paddingBottom="5dp"
+        android:id="@+id/tv_view_products"
+        android:text="@string/view_my_products"
+        android:textColor="@color/first_font"
+        android:textSize="18sp" />
+    <TextView
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:id="@+id/tv_hint"
         android:textColor="@color/gmail"

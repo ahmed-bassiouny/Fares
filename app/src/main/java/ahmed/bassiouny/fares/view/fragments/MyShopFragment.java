@@ -1,6 +1,7 @@
 package ahmed.bassiouny.fares.view.fragments;
 
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
@@ -20,6 +21,7 @@ import ahmed.bassiouny.fares.model.Shop;
 import ahmed.bassiouny.fares.utils.MyDialog;
 import ahmed.bassiouny.fares.utils.MyHelper;
 import ahmed.bassiouny.fares.utils.MyIntentKey;
+import ahmed.bassiouny.fares.view.activities.CreateProductActivity;
 
 /**
  * A simple {@link Fragment} subclass.
@@ -33,6 +35,7 @@ public class MyShopFragment extends Fragment {
     private TextView tvAddProduct;
     private TextView tvEditShop;
     private TextView tvHint;
+    private TextView tvViewproducts;
     private Shop shop;
     public MyShopFragment() {
         // Required empty public constructor
@@ -61,6 +64,7 @@ public class MyShopFragment extends Fragment {
         tvAddProduct = view.findViewById(R.id.tv_add_product);
         tvEditShop = view.findViewById(R.id.tv_edit_shop);
         tvHint = view.findViewById(R.id.tv_hint);
+        tvViewproducts = view.findViewById(R.id.tv_view_products);
         onClick();
     }
 
@@ -81,6 +85,19 @@ public class MyShopFragment extends Fragment {
                 MyHelper.goToFragment(getActivity(),new updateShopFragment(),true,bundle);
             }
         });
+        tvViewproducts.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+            }
+        });
+        tvAddProduct.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startActivity(new Intent(getContext(),CreateProductActivity.class));
+
+            }
+        });
     }
 
     private void fetchData() {
@@ -98,9 +115,11 @@ public class MyShopFragment extends Fragment {
                     if (shop.getName().isEmpty()) {
                         tvHint.setVisibility(View.VISIBLE);
                         tvAddProduct.setEnabled(false);
+                        tvViewproducts.setEnabled(false);
                     } else {
                         tvHint.setVisibility(View.INVISIBLE);
                         tvAddProduct.setEnabled(true);
+                        tvViewproducts.setEnabled(true);
                     }
                     dialog.hide();
                 } else {
@@ -112,6 +131,7 @@ public class MyShopFragment extends Fragment {
             public void onFailed(String errorMessage) {
                 Toast.makeText(getContext(), errorMessage, Toast.LENGTH_SHORT).show();
                 tvAddProduct.setEnabled(false);
+                tvViewproducts.setEnabled(false);
                 tvEditShop.setEnabled(false);
                 dialog.hide();
                 getActivity().onBackPressed();

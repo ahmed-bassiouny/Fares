@@ -22,13 +22,13 @@ public class SectionsOfShopActivity extends MyToolbar {
         setContentView(R.layout.activity_sections_of_shop);
         setupMyToolbar(true,true,"Town Team");
         findViewById();
-        setFakeData();
+        //setFakeData();
     }
     private void findViewById(){
         recyclerView = findViewById(R.id.recycler_view);
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
     }
-    private void  setFakeData(){
+/*    private void  setFakeData(){
         List<Section> sections = new ArrayList<>();
         Section section = new Section(1,"قسم الملابس الرجالى");
         sections.add(section);
@@ -40,5 +40,5 @@ public class SectionsOfShopActivity extends MyToolbar {
         sections.add(section4);
         SectionOfShopAdapter sectionOfShopAdapter = new SectionOfShopAdapter(this,sections);
         recyclerView.setAdapter(sectionOfShopAdapter);
-    }
+    }*/
 }

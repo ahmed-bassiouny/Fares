@@ -10,6 +10,8 @@ import ahmed.bassiouny.fares.api.response.LoginResponse;
 import ahmed.bassiouny.fares.api.response.MyShopListResponse;
 import ahmed.bassiouny.fares.api.response.MyShopResponse;
 import ahmed.bassiouny.fares.api.response.ParentResponse;
+import ahmed.bassiouny.fares.api.response.SectionsResponse;
+import ahmed.bassiouny.fares.model.Section;
 import ahmed.bassiouny.fares.model.Shop;
 import ahmed.bassiouny.fares.model.User;
 import ahmed.bassiouny.fares.utils.UserSharedPref;
@@ -99,6 +101,22 @@ public class RequestAndResponse {
 
             @Override
             public void onFailure(Call<MyShopResponse> call, Throwable t) {
+                anInterface.onFailed(errorConnection);
+            }
+        });
+    }
+
+    public static void getSections(final BaseResponseInterface<List<Section>> anInterface){
+        Call<SectionsResponse> response = baseRequestInterface.getSections();
+        response.enqueue(new Callback<SectionsResponse>() {
+            @Override
+            public void onResponse(Call<SectionsResponse> call, Response<SectionsResponse> response) {
+                checkValidResult(response.code(),response.body().getStatus(),
+                        response.body().getSections(),response.body().getMessage(),anInterface);
+            }
+
+            @Override
+            public void onFailure(Call<SectionsResponse> call, Throwable t) {
                 anInterface.onFailed(errorConnection);
             }
         });

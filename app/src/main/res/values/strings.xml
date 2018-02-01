@@ -77,13 +77,10 @@
     <string name="please_complete_shop">من فضلك قم باكمال بيانات المتجر</string>
     <string name="shop_created">تم انشاء متجرك بنجاح</string>
     <string name="shop_updated">تم تعديل متجرك بنجاح</string>
+    <string name="view_my_products">عرض منتجاتى</string>
+    <string name="hour">ساعة</string>
     <array name="product_can_be_ready_value">
         <item>24 ساعة</item>
         <item>48 ساعة</item>
-    </array>
-    <array name="sections">
-        <item>قسم رجالى</item>
-        <item>قسم العاب الكترونية</item>
-        <item>قسم مستلزمات طبية</item>
     </array>
 </resources>
