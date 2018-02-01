@@ -12,10 +12,12 @@ import ahmed.bassiouny.fares.R;
 import ahmed.bassiouny.fares.api.config.BaseResponseInterface;
 import ahmed.bassiouny.fares.api.request.RequestAndResponse;
 import ahmed.bassiouny.fares.api.response.ParentResponse;
+import ahmed.bassiouny.fares.toolbar.MyToolbar;
+import ahmed.bassiouny.fares.utils.MyDialog;
 import ahmed.bassiouny.fares.utils.MyProgressBar;
 import ahmed.bassiouny.fares.utils.UserSharedPref;
 
-public class CreateShopActivity extends AppCompatActivity {
+public class CreateShopActivity extends MyToolbar {
 
 
     private TextInputEditText etPhone;
@@ -28,9 +30,9 @@ public class CreateShopActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_create_shop);
+        setupMyToolbar(true,false,getString(R.string.my_shop));
         findViewById();
         onClick();
-        MyProgressBar.setActivity(this);
     }
 
     private void findViewById() {
@@ -46,9 +48,9 @@ public class CreateShopActivity extends AppCompatActivity {
             public void onClick(View v) {
                 if(etPhone.getText().toString().length() !=11){
                     etPhone.setError(getString(R.string.invalid_phone));
-                    Toast.makeText(CreateShopActivity.this, "تم ارساال الكود بنجاح", Toast.LENGTH_SHORT).show();
                 }else {
-                    etCode.setEnabled(true);
+                    Toast.makeText(CreateShopActivity.this, "تم ارساال الكود بنجاح", Toast.LENGTH_SHORT).show();
+                    etCode.setText("5896");
                     etCreateShop.setEnabled(true);
                 }
             }
@@ -56,19 +58,20 @@ public class CreateShopActivity extends AppCompatActivity {
         etCreateShop.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                MyProgressBar.show();
+                MyDialog.show(CreateShopActivity.this);
                 RequestAndResponse.createShop(CreateShopActivity.this, etPhone.getText().toString(), new BaseResponseInterface<ParentResponse>() {
                     @Override
                     public void onSuccess(ParentResponse parentResponse) {
-                        Toast.makeText(CreateShopActivity.this, parentResponse.getMessage(), Toast.LENGTH_SHORT).show();
+                        Toast.makeText(CreateShopActivity.this, R.string.shop_created, Toast.LENGTH_SHORT).show();
                         UserSharedPref.setUserHasShop(CreateShopActivity.this,true);
-                        MyProgressBar.hide();
+                        MyDialog.hide();
+                        finish();
                     }
 
                     @Override
                     public void onFailed(String errorMessage) {
                         Toast.makeText(CreateShopActivity.this, errorMessage, Toast.LENGTH_SHORT).show();
-                        MyProgressBar.hide();
+                        MyDialog.hide();
                     }
                 });
             }

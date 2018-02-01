@@ -1,5 +1,8 @@
 package ahmed.bassiouny.fares.model;
 
+import android.os.Parcel;
+import android.os.Parcelable;
+
 import com.google.gson.annotations.SerializedName;
 
 import ahmed.bassiouny.fares.utils.MyHelper;
@@ -8,7 +11,7 @@ import ahmed.bassiouny.fares.utils.MyHelper;
  * Created by bassiouny on 12/01/18.
  */
 
-public class Shop {
+public class Shop implements Parcelable {
 
     @SerializedName("id")
     private int id;
@@ -46,4 +49,43 @@ public class Shop {
     public String getPhone() {
         return MyHelper.getValueFromString(phone);
     }
+
+    @Override
+    public int describeContents() {
+        return 0;
+    }
+
+    @Override
+    public void writeToParcel(Parcel dest, int flags) {
+        dest.writeInt(this.id);
+        dest.writeInt(this.userId);
+        dest.writeString(this.name);
+        dest.writeString(this.description);
+        dest.writeString(this.photo);
+        dest.writeString(this.phone);
+    }
+
+    public Shop() {
+    }
+
+    protected Shop(Parcel in) {
+        this.id = in.readInt();
+        this.userId = in.readInt();
+        this.name = in.readString();
+        this.description = in.readString();
+        this.photo = in.readString();
+        this.phone = in.readString();
+    }
+
+    public static final Parcelable.Creator<Shop> CREATOR = new Parcelable.Creator<Shop>() {
+        @Override
+        public Shop createFromParcel(Parcel source) {
+            return new Shop(source);
+        }
+
+        @Override
+        public Shop[] newArray(int size) {
+            return new Shop[size];
+        }
+    };
 }

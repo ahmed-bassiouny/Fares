@@ -52,16 +52,7 @@ public class ShopAdapter extends RecyclerView.Adapter<ShopAdapter.MyViewHolder> 
 
     @Override
     public void onBindViewHolder(final MyViewHolder holder, final int position) {
-        Shop shop = shops.get(position);
-        holder.ivShopName.setText(shop.getName());
-        holder.ivShopDescription.setText(shop.getDescription());
-        holder.ivShopPhoto.setImageResource(shop.getPhoto());
-        holder.ivShopPhoto.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                context.startActivity(new Intent(context, SectionsOfShopActivity.class));
-            }
-        });
+
     }
 
     @Override

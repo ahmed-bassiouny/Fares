@@ -138,6 +138,7 @@
         android:textColor="@color/gmail"
         android:layout_margin="10dp"
         android:visibility="invisible"
+        android:layout_gravity="center"
         android:text="@string/please_complete_shop"/>
 </LinearLayout>
 </ScrollView>

@@ -73,6 +73,7 @@
     <string name="invalid_phone">رقم الهاتف غير صحيح</string>
     <string name="try_again">حدث خطا ما برجاء المحاولة فى وقت اخر</string>
     <string name="please_complete_shop">من فضلك قم باكمال بيانات المتجر</string>
+    <string name="shop_created">تم انشاء متجرك بنجاح</string>
     <array name="product_can_be_ready_value">
         <item>24 ساعة</item>
         <item>48 ساعة</item>

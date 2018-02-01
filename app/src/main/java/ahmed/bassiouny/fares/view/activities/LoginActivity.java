@@ -45,9 +45,15 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
         findViewById(R.id.btn_gmail).setOnClickListener(this);
         findViewById(R.id.btn_facebook).setOnClickListener(this);
         mAuth = FirebaseAuth.getInstance();
+        if(mAuth.getCurrentUser()!=null)
+            updateUI();
 
     }
 
+    private void updateUI(){
+        startActivity(new Intent(LoginActivity.this,HomeActivity.class));
+        finish();
+    }
     @Override
     public void onClick(View view) {
         switch (view.getId()) {
@@ -90,9 +96,9 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
                             RequestAndResponse.loginUser(user.getUid(), user.getDisplayName(), user.getEmail(), "", new BaseResponseInterface<User>() {
                                 @Override
                                 public void onSuccess(User user) {
-                                    Toast.makeText(LoginActivity.this, user.getEmail(), Toast.LENGTH_SHORT).show();
                                     UserSharedPref.setUserInfo(LoginActivity.this,user.getApiToken(),user.isHasShop());
                                     MyProgressBar.hide();
+                                    updateUI();
                                 }
 
                                 @Override
@@ -119,11 +125,5 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
         mGoogleApiClient = new GoogleApiClient.Builder(this)
                 .addApi(Auth.GOOGLE_SIGN_IN_API, gso)
                 .build();
-    }
-
-    @Override
-    protected void onStop() {
-        super.onStop();
-        FirebaseAuth.getInstance().signOut();
     }
 }

@@ -1,5 +1,7 @@
 package ahmed.bassiouny.fares.api.response;
 
+import com.google.gson.annotations.SerializedName;
+
 import java.util.ArrayList;
 import java.util.List;
 
@@ -10,6 +12,7 @@ import ahmed.bassiouny.fares.model.Shop;
  */
 
 public class MyShopResponse extends ParentResponse {
+    @SerializedName(DATA_KEY)
     private List<Shop> shops;
 
     public List<Shop> getShops() {

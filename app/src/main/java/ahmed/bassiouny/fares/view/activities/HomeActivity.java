@@ -1,5 +1,6 @@
 package ahmed.bassiouny.fares.view.activities;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.os.Handler;
 import android.support.design.widget.NavigationView;
@@ -10,6 +11,7 @@ import android.view.MenuItem;
 import ahmed.bassiouny.fares.R;
 import ahmed.bassiouny.fares.toolbar.MyToolbar;
 import ahmed.bassiouny.fares.utils.MyHelper;
+import ahmed.bassiouny.fares.utils.UserSharedPref;
 import ahmed.bassiouny.fares.view.fragments.AllShopFragment;
 import ahmed.bassiouny.fares.view.fragments.updateShopFragment;
 import ahmed.bassiouny.fares.view.fragments.MyShopFragment;
@@ -72,13 +74,14 @@ public class HomeActivity extends MyToolbar
                         toolbarTitle.setText(R.string.current_orders);
                         MyHelper.goToFragment(HomeActivity.this, UserOrdersFragment.newInstance(), false, null);
                         break;
-                    case R.id.create_shop:
-                        toolbarTitle.setText(R.string.create_shop);
-                        MyHelper.goToFragment(HomeActivity.this, updateShopFragment.newInstance(), false, null);
-                        break;
                     case R.id.my_shop:
-                        toolbarTitle.setText(R.string.my_shop);
-                        MyHelper.goToFragment(HomeActivity.this, MyShopFragment.newInstance(), false, null);
+                        if(UserSharedPref.getUserHasShop(HomeActivity.this)) {
+                            toolbarTitle.setText(R.string.my_shop);
+                            MyHelper.goToFragment(HomeActivity.this, MyShopFragment.newInstance(), false, null);
+                        }
+                        else {
+                            startActivity(new Intent(HomeActivity.this, CreateShopActivity.class));
+                        }
                         break;
                 }
             }

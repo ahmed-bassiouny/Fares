@@ -1,9 +1,12 @@
 package ahmed.bassiouny.fares.utils;
 
+import android.app.AlertDialog;
 import android.content.Context;
 import android.graphics.Color;
 
-import cn.pedant.SweetAlert.SweetAlertDialog;
+import ahmed.bassiouny.fares.R;
+import dmax.dialog.SpotsDialog;
+
 
 /**
  * Created by bassiouny on 31/01/18.
@@ -11,21 +14,19 @@ import cn.pedant.SweetAlert.SweetAlertDialog;
 
 public class MyDialog {
 
-    private static SweetAlertDialog pDialog;
+    private static AlertDialog dialog;
 
     public static void show(Context context) {
-        if (pDialog == null) {
-            pDialog = new SweetAlertDialog(context, SweetAlertDialog.PROGRESS_TYPE);
-            pDialog.getProgressHelper().setBarColor(Color.parseColor("#A5DC86"));
-            pDialog.setTitleText("من فضلك انتظر ...");
-            pDialog.setCancelable(false);
-            pDialog.show();
+        if (dialog == null) {
+            dialog = new SpotsDialog(context,"تحميل");
+            dialog.setCancelable(false);
+            dialog.show();
         }
     }
 
     public static void hide() {
-        if(pDialog.isShowing()){
-            pDialog.dismissWithAnimation();
+        if (dialog.isShowing()) {
+            dialog.dismiss();
         }
     }
 }

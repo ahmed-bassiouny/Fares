@@ -18,6 +18,8 @@ import ahmed.bassiouny.fares.api.config.BaseResponseInterface;
 import ahmed.bassiouny.fares.api.request.RequestAndResponse;
 import ahmed.bassiouny.fares.model.Shop;
 import ahmed.bassiouny.fares.utils.MyDialog;
+import ahmed.bassiouny.fares.utils.MyHelper;
+import ahmed.bassiouny.fares.utils.MyIntentKey;
 
 /**
  * A simple {@link Fragment} subclass.
@@ -31,7 +33,7 @@ public class MyShopFragment extends Fragment {
     private TextView tvAddProduct;
     private TextView tvEditShop;
     private TextView tvHint;
-
+    private Shop shop;
     public MyShopFragment() {
         // Required empty public constructor
     }
@@ -59,7 +61,21 @@ public class MyShopFragment extends Fragment {
         tvAddProduct = view.findViewById(R.id.tv_add_product);
         tvEditShop = view.findViewById(R.id.tv_edit_shop);
         tvHint = view.findViewById(R.id.tv_hint);
+        onClick();
         fetchData();
+    }
+
+    private void onClick() {
+        tvEditShop.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                if(shop == null)
+                    return;
+                Bundle bundle = new Bundle();
+                bundle.putParcelable(MyIntentKey.SHOP,shop);
+                MyHelper.goToFragment(getActivity(),new updateShopFragment(),true,bundle);
+            }
+        });
     }
 
     private void fetchData() {
@@ -68,7 +84,7 @@ public class MyShopFragment extends Fragment {
             @Override
             public void onSuccess(List<Shop> shops) {
                 if (shops != null && shops.size() > 0) {
-                    Shop shop = shops.get(shops.size() - 1);
+                    shop = shops.get(shops.size() - 1);
                     tvShopName.setText(shop.getName());
                     tvShopDesc.setText(shop.getDescription());
                     tvPhone.append(shop.getPhone());
@@ -94,6 +110,7 @@ public class MyShopFragment extends Fragment {
                 tvAddProduct.setEnabled(false);
                 tvEditShop.setEnabled(false);
                 MyDialog.hide();
+                getActivity().onBackPressed();
             }
         });
     }
