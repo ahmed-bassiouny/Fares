@@ -11,13 +11,13 @@ import ahmed.bassiouny.fares.model.Shop;
  * Created by bassiouny on 31/01/18.
  */
 
-public class MyShopResponse extends ParentResponse {
+public class MyShopListResponse extends ParentResponse {
     @SerializedName(DATA_KEY)
-    private Shop shop;
+    private List<Shop> shops;
 
-    public Shop getShop() {
-        if(shop == null)
-            shop = new Shop();
-        return shop;
+    public List<Shop> getShops() {
+        if (shops == null)
+            shops = new ArrayList<>();
+        return shops;
     }
 }

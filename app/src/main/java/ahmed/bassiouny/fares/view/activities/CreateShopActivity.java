@@ -58,20 +58,21 @@ public class CreateShopActivity extends MyToolbar {
         etCreateShop.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                MyDialog.show(CreateShopActivity.this);
+                final MyDialog dialog= new MyDialog();
+                dialog.show(CreateShopActivity.this);
                 RequestAndResponse.createShop(CreateShopActivity.this, etPhone.getText().toString(), new BaseResponseInterface<ParentResponse>() {
                     @Override
                     public void onSuccess(ParentResponse parentResponse) {
                         Toast.makeText(CreateShopActivity.this, R.string.shop_created, Toast.LENGTH_SHORT).show();
                         UserSharedPref.setUserHasShop(CreateShopActivity.this,true);
-                        MyDialog.hide();
+                        dialog.hide();
                         finish();
                     }
 
                     @Override
                     public void onFailed(String errorMessage) {
                         Toast.makeText(CreateShopActivity.this, errorMessage, Toast.LENGTH_SHORT).show();
-                        MyDialog.hide();
+                        dialog.hide();
                     }
                 });
             }

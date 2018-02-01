@@ -1,14 +1,13 @@
 package ahmed.bassiouny.fares.api.request;
 
 import android.content.Context;
-import android.util.Log;
 
 import java.util.List;
 
 import ahmed.bassiouny.fares.api.config.ApiConfig;
 import ahmed.bassiouny.fares.api.config.BaseResponseInterface;
-import ahmed.bassiouny.fares.api.request.BaseRequestInterface;
 import ahmed.bassiouny.fares.api.response.LoginResponse;
+import ahmed.bassiouny.fares.api.response.MyShopListResponse;
 import ahmed.bassiouny.fares.api.response.MyShopResponse;
 import ahmed.bassiouny.fares.api.response.ParentResponse;
 import ahmed.bassiouny.fares.model.Shop;
@@ -73,12 +72,29 @@ public class RequestAndResponse {
         });
     }
     public static void getMyShop(Context context,final BaseResponseInterface<List<Shop>> anInterface){
-        Call<MyShopResponse> response = baseRequestInterface.getMyShop(UserSharedPref.getTokenWithHeader(context));
+        Call<MyShopListResponse> response = baseRequestInterface.getMyShop(UserSharedPref.getTokenWithHeader(context));
+        response.enqueue(new Callback<MyShopListResponse>() {
+            @Override
+            public void onResponse(Call<MyShopListResponse> call, Response<MyShopListResponse> response) {
+                checkValidResult(response.code(),response.body().getStatus(),
+                        response.body().getShops(),response.body().getMessage(),anInterface);
+            }
+
+            @Override
+            public void onFailure(Call<MyShopListResponse> call, Throwable t) {
+                anInterface.onFailed(errorConnection);
+            }
+        });
+    }
+
+    public static void updateMyShop(Context context,Shop shop,final BaseResponseInterface<Shop> anInterface){
+        Call<MyShopResponse> response = baseRequestInterface.updateMyShop(UserSharedPref.getTokenWithHeader(context)
+        ,shop.getId(),shop.getName(),shop.getDescription(),shop.getPhone());
         response.enqueue(new Callback<MyShopResponse>() {
             @Override
             public void onResponse(Call<MyShopResponse> call, Response<MyShopResponse> response) {
                 checkValidResult(response.code(),response.body().getStatus(),
-                        response.body().getShops(),response.body().getMessage(),anInterface);
+                        response.body().getShop(),response.body().getMessage(),anInterface);
             }
 
             @Override

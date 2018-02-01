@@ -62,6 +62,11 @@ public class MyShopFragment extends Fragment {
         tvEditShop = view.findViewById(R.id.tv_edit_shop);
         tvHint = view.findViewById(R.id.tv_hint);
         onClick();
+    }
+
+    @Override
+    public void onStart() {
+        super.onStart();
         fetchData();
     }
 
@@ -79,7 +84,8 @@ public class MyShopFragment extends Fragment {
     }
 
     private void fetchData() {
-        MyDialog.show(getContext());
+        final MyDialog dialog= new MyDialog();
+        dialog.show(getActivity());
         RequestAndResponse.getMyShop(getContext(), new BaseResponseInterface<List<Shop>>() {
             @Override
             public void onSuccess(List<Shop> shops) {
@@ -87,18 +93,16 @@ public class MyShopFragment extends Fragment {
                     shop = shops.get(shops.size() - 1);
                     tvShopName.setText(shop.getName());
                     tvShopDesc.setText(shop.getDescription());
-                    tvPhone.append(shop.getPhone());
+                    tvPhone.append(" "+shop.getPhone());
                     // todo load image
                     if (shop.getName().isEmpty()) {
-                        // i need to complete information
                         tvHint.setVisibility(View.VISIBLE);
                         tvAddProduct.setEnabled(false);
                     } else {
-                        // information completed
                         tvHint.setVisibility(View.INVISIBLE);
                         tvAddProduct.setEnabled(true);
                     }
-                    MyDialog.hide();
+                    dialog.hide();
                 } else {
                     onFailed(getString(R.string.try_again));
                 }
@@ -109,7 +113,7 @@ public class MyShopFragment extends Fragment {
                 Toast.makeText(getContext(), errorMessage, Toast.LENGTH_SHORT).show();
                 tvAddProduct.setEnabled(false);
                 tvEditShop.setEnabled(false);
-                MyDialog.hide();
+                dialog.hide();
                 getActivity().onBackPressed();
             }
         });

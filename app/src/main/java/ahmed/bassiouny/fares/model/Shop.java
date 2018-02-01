@@ -50,6 +50,14 @@ public class Shop implements Parcelable {
         return MyHelper.getValueFromString(phone);
     }
 
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    public void setDescription(String description) {
+        this.description = description;
+    }
+
     @Override
     public int describeContents() {
         return 0;

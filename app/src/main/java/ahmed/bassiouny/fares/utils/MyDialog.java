@@ -14,19 +14,16 @@ import dmax.dialog.SpotsDialog;
 
 public class MyDialog {
 
-    private static AlertDialog dialog;
+    private AlertDialog dialog;
 
-    public static void show(Context context) {
-        if (dialog == null) {
-            dialog = new SpotsDialog(context,"تحميل");
-            dialog.setCancelable(false);
-            dialog.show();
-        }
+    public void show(Context context) {
+        dialog = new SpotsDialog(context, "تحميل");
+        dialog.setCancelable(false);
+        dialog.show();
     }
 
-    public static void hide() {
-        if (dialog.isShowing()) {
+    public void hide() {
+        if (dialog.isShowing())
             dialog.dismiss();
-        }
     }
 }
