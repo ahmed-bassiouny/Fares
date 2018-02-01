@@ -8,6 +8,7 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -15,6 +16,8 @@ import java.util.List;
 import ahmed.bassiouny.fares.R;
 import ahmed.bassiouny.fares.model.Product;
 import ahmed.bassiouny.fares.toolbar.MyToolbar;
+import ahmed.bassiouny.fares.utils.MyIntentKey;
+import ahmed.bassiouny.fares.utils.UserSharedPref;
 import ahmed.bassiouny.fares.view.adapter.ProductRelatedToAdapter;
 
 public class ShowProductActivity extends MyToolbar {
@@ -25,16 +28,48 @@ public class ShowProductActivity extends MyToolbar {
     private ImageView ivSub3;
     private ImageView ivSub4;
     private TextView tvDescription;
-    private RecyclerView recyclerView;
-    private Button btnBuy,btnAddToCart;
+    private TextView tvWholesalePrice;
+    private TextView tvWholesaleCount;
+    private TextView tvCountProduct;
+    private Button btnAddToCart;
+    private Button btnBuy;
+    private TextView tvProductPrice;
+
+    // local variable
+    private Product product;
+    private boolean myProduct = false;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_show_product);
-        setupMyToolbar(true,true,"بنطلون جينز");
+        setupMyToolbar(true, true, "");
         findViewById();
         onClick();
+        setProduct();
+    }
+
+    private void setProduct() {
+        product = getIntent().getParcelableExtra(MyIntentKey.PRODUCT);
+        myProduct = UserSharedPref.getUserId(this) == 0;
+        if (product == null) {
+            Toast.makeText(this, R.string.try_again, Toast.LENGTH_SHORT).show();
+            finish();
+        }else {
+            toolbarTitle.setText(product.getName());
+            tvDescription.setText(product.getDescription());
+            tvWholesalePrice.append(" "+product.getWholesalePrice());
+            tvWholesaleCount.append(" "+product.getWholesaleCount());
+            tvCountProduct.append(" "+product.getAvailablePieces());
+            tvProductPrice.setText(getString(R.string.eg)+" "+product.getPrice());
+            if(myProduct){
+                btnBuy.setVisibility(View.GONE);
+                btnAddToCart.setVisibility(View.GONE);
+            }else {
+                btnBuy.setVisibility(View.VISIBLE);
+                btnAddToCart.setVisibility(View.VISIBLE);
+            }
+        }
     }
 
 
@@ -60,12 +95,15 @@ public class ShowProductActivity extends MyToolbar {
         ivSub3 = findViewById(R.id.iv_sub3);
         ivSub4 = findViewById(R.id.iv_sub4);
         tvDescription = findViewById(R.id.tv_description);
-        recyclerView = findViewById(R.id.recycler_view);
-        btnBuy = findViewById(R.id.btn_buy);
+        tvWholesalePrice = findViewById(R.id.tv_wholesale_price);
+        tvWholesaleCount = findViewById(R.id.tv_wholesale_count);
+        tvCountProduct = findViewById(R.id.tv_count_product);
         btnAddToCart = findViewById(R.id.btn_add_to_cart);
-        recyclerView.setLayoutManager(new LinearLayoutManager(this,LinearLayoutManager.HORIZONTAL,false));
+        btnBuy = findViewById(R.id.btn_buy);
+        tvProductPrice = findViewById(R.id.tv_product_price);
     }
-    private void setMainImageFromSubImage(final ImageView subImage){
+
+    private void setMainImageFromSubImage(final ImageView subImage) {
         subImage.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {

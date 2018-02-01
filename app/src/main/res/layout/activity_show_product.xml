@@ -46,7 +46,7 @@
             android:fontFamily="@font/jfflat"
             android:paddingEnd="20dp"
             android:paddingStart="20dp"
-            android:text="340 جنية"
+            android:id="@+id/tv_product_price"
             android:textColor="@color/first_font"
             android:textSize="16sp"
             android:textStyle="bold" />
@@ -153,6 +153,45 @@
             android:textColor="@color/second_font" />
 
         <TextView
+            android:id="@+id/tv_wholesale_price"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/tv_description"
+            android:layout_marginStart="20dp"
+            android:layout_marginTop="10dp"
+            android:fontFamily="@font/jfflat"
+            android:text="@string/price_for_full_product"
+            android:textColor="@color/first_font"
+            android:textSize="15sp"
+            android:textStyle="bold" />
+        <TextView
+            android:id="@+id/tv_wholesale_count"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/tv_wholesale_price"
+            android:layout_marginStart="20dp"
+            android:layout_marginTop="10dp"
+            android:fontFamily="@font/jfflat"
+            android:text="@string/count_for_full_product"
+            android:textColor="@color/first_font"
+            android:textSize="15sp"
+            android:textStyle="bold" />
+        <TextView
+            android:id="@+id/tv_count_product"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/tv_wholesale_count"
+            android:layout_marginStart="20dp"
+            android:layout_marginTop="10dp"
+            android:fontFamily="@font/jfflat"
+            android:layout_above="@+id/linear_buttos"
+            android:text="@string/count_product"
+            android:textColor="@color/first_font"
+            android:textSize="15sp"
+            android:textStyle="bold" />
+
+<!--
+        <TextView
             android:id="@+id/product_related_to_name"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -172,6 +211,7 @@
             android:layout_marginTop="5dp"
             android:layout_above="@+id/linear_buttos"
             android:layout_below="@+id/product_related_to_name" />
+-->
 
         <LinearLayout
             android:id="@+id/linear_buttos"

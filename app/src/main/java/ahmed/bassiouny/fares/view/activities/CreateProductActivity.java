@@ -1,5 +1,6 @@
 package ahmed.bassiouny.fares.view.activities;
 
+import android.content.Intent;
 import android.support.design.widget.TextInputEditText;
 import android.os.Bundle;
 import android.view.View;
@@ -86,11 +87,30 @@ public class CreateProductActivity extends MyToolbar {
                     if (wholesaleCount > 0 && wholesalePrice == 0) {
                         etWholesalePrice.setError("برجاء ادخل سعر المنتج للجمله");
                     } else {
+                        final MyDialog dialog = new MyDialog();
+                        dialog.show(CreateProductActivity.this);
                         Product product = new Product(shopId,sectionsId.get(spSections.getSelectedItemPosition())
                                 ,etProductName.getText().toString(),etProductDesc.getText().toString()
                                 ,etPrice.getText().toString(),etAvailablePieces.getText().toString()
                                 ,String.valueOf(wholesaleCount),String.valueOf(wholesalePrice)
                                 ,getReadyAtTime());
+                        RequestAndResponse.createProduct(CreateProductActivity.this, product, new BaseResponseInterface<Product>() {
+                            @Override
+                            public void onSuccess(Product product) {
+                                Toast.makeText(CreateProductActivity.this, R.string.product_created, Toast.LENGTH_SHORT).show();
+                                dialog.hide();
+                                Intent intent = new Intent(CreateProductActivity.this,ShowProductActivity.class);
+                                intent.putExtra(MyIntentKey.PRODUCT,product);
+                                startActivity(intent);
+                                finish();
+                            }
+
+                            @Override
+                            public void onFailed(String errorMessage) {
+                                Toast.makeText(CreateProductActivity.this, errorMessage, Toast.LENGTH_SHORT).show();
+                                dialog.hide();
+                            }
+                        });
                     }
                 }
             }

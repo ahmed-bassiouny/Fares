@@ -96,7 +96,7 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
                             RequestAndResponse.loginUser(user.getUid(), user.getDisplayName(), user.getEmail(), "", new BaseResponseInterface<User>() {
                                 @Override
                                 public void onSuccess(User user) {
-                                    UserSharedPref.setUserInfo(LoginActivity.this,user.getApiToken(),user.isHasShop());
+                                    UserSharedPref.setUserInfo(LoginActivity.this,user.getApiToken(),user.isHasShop(),user.getId(),user.isOnline());
                                     MyProgressBar.hide();
                                     updateUI();
                                 }

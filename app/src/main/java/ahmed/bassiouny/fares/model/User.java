@@ -32,6 +32,8 @@ public class User {
     private boolean hasShop;
     @SerializedName("profile_img")
     private String avatar;
+    @SerializedName("is_online")
+    private int online;
 
     public int getId() {
         return id;
@@ -75,5 +77,9 @@ public class User {
 
     public String getAvatar() {
         return MyHelper.getValueFromString(avatar);
+    }
+
+    public boolean isOnline(){
+        return online == 1;
     }
 }

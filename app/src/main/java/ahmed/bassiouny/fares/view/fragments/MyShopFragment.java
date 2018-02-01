@@ -94,7 +94,9 @@ public class MyShopFragment extends Fragment {
         tvAddProduct.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                startActivity(new Intent(getContext(),CreateProductActivity.class));
+                Intent intent = new Intent(getContext(),CreateProductActivity.class);
+                intent.putExtra(MyIntentKey.SHOP_ID,shop.getId());
+                startActivity(intent);
 
             }
         });
@@ -110,7 +112,7 @@ public class MyShopFragment extends Fragment {
                     shop = shops.get(shops.size() - 1);
                     tvShopName.setText(shop.getName());
                     tvShopDesc.setText(shop.getDescription());
-                    tvPhone.append(" "+shop.getPhone());
+                    tvPhone.setText(getString(R.string.phone)+" "+shop.getPhone());
                     // todo load image
                     if (shop.getName().isEmpty()) {
                         tvHint.setVisibility(View.VISIBLE);

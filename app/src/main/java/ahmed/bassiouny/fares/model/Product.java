@@ -1,5 +1,8 @@
 package ahmed.bassiouny.fares.model;
 
+import android.os.Parcel;
+import android.os.Parcelable;
+
 import com.google.gson.annotations.SerializedName;
 
 import ahmed.bassiouny.fares.utils.MyHelper;
@@ -8,7 +11,7 @@ import ahmed.bassiouny.fares.utils.MyHelper;
  * Created by bassiouny on 11/01/18.
  */
 
-public class Product {
+public class Product implements Parcelable {
 
     @SerializedName("id")
     private int id;
@@ -38,6 +41,8 @@ public class Product {
     private String img_3;
     @SerializedName("img_4")
     private String img_4;
+    @SerializedName("user_id")
+    private int ownerId;
 
     public Product() {
     }
@@ -109,4 +114,62 @@ public class Product {
     public String getImg_4() {
         return MyHelper.getValueFromString(img_4);
     }
+
+    public int getOwnerId() {
+        return ownerId;
+    }
+
+    @Override
+    public int describeContents() {
+        return 0;
+    }
+
+    @Override
+    public void writeToParcel(Parcel dest, int flags) {
+        dest.writeInt(this.id);
+        dest.writeInt(this.shopId);
+        dest.writeInt(this.sectionId);
+        dest.writeString(this.name);
+        dest.writeString(this.description);
+        dest.writeString(this.price);
+        dest.writeString(this.availablePieces);
+        dest.writeString(this.wholesaleCount);
+        dest.writeString(this.wholesalePrice);
+        dest.writeString(this.orderReadyAt);
+        dest.writeString(this.img_1);
+        dest.writeString(this.img_2);
+        dest.writeString(this.img_3);
+        dest.writeString(this.img_4);
+        dest.writeInt(this.ownerId);
+    }
+
+    protected Product(Parcel in) {
+        this.id = in.readInt();
+        this.shopId = in.readInt();
+        this.sectionId = in.readInt();
+        this.name = in.readString();
+        this.description = in.readString();
+        this.price = in.readString();
+        this.availablePieces = in.readString();
+        this.wholesaleCount = in.readString();
+        this.wholesalePrice = in.readString();
+        this.orderReadyAt = in.readString();
+        this.img_1 = in.readString();
+        this.img_2 = in.readString();
+        this.img_3 = in.readString();
+        this.img_4 = in.readString();
+        this.ownerId = in.readInt();
+    }
+
+    public static final Parcelable.Creator<Product> CREATOR = new Parcelable.Creator<Product>() {
+        @Override
+        public Product createFromParcel(Parcel source) {
+            return new Product(source);
+        }
+
+        @Override
+        public Product[] newArray(int size) {
+            return new Product[size];
+        }
+    };
 }
