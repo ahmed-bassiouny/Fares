@@ -11,6 +11,7 @@ import ahmed.bassiouny.fares.api.response.MyProductResponse;
 import ahmed.bassiouny.fares.api.response.MyShopListResponse;
 import ahmed.bassiouny.fares.api.response.MyShopResponse;
 import ahmed.bassiouny.fares.api.response.ParentResponse;
+import ahmed.bassiouny.fares.api.response.ProductListResponse;
 import ahmed.bassiouny.fares.api.response.SectionsResponse;
 import ahmed.bassiouny.fares.model.Product;
 import ahmed.bassiouny.fares.model.Section;
@@ -154,6 +155,21 @@ public class RequestAndResponse {
 
             @Override
             public void onFailure(Call<SectionsResponse> call, Throwable t) {
+                anInterface.onFailed(errorConnection);
+            }
+        });
+    }
+    public static void getProduct(Context context,int shopId,int sectionId,final BaseResponseInterface<List<Product>> anInterface){
+        Call<ProductListResponse> response = baseRequestInterface.getProducts(UserSharedPref.getTokenWithHeader(context),shopId,sectionId);
+        response.enqueue(new Callback<ProductListResponse>() {
+            @Override
+            public void onResponse(Call<ProductListResponse> call, Response<ProductListResponse> response) {
+                checkValidResult(response.code(),response.body().getStatus(),
+                        response.body().getProducts(),response.body().getMessage(),anInterface);
+            }
+
+            @Override
+            public void onFailure(Call<ProductListResponse> call, Throwable t) {
                 anInterface.onFailed(errorConnection);
             }
         });

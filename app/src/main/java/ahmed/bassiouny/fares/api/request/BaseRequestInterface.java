@@ -5,6 +5,7 @@ import ahmed.bassiouny.fares.api.response.MyProductResponse;
 import ahmed.bassiouny.fares.api.response.MyShopListResponse;
 import ahmed.bassiouny.fares.api.response.MyShopResponse;
 import ahmed.bassiouny.fares.api.response.ParentResponse;
+import ahmed.bassiouny.fares.api.response.ProductListResponse;
 import ahmed.bassiouny.fares.api.response.SectionsResponse;
 import retrofit2.Call;
 import retrofit2.http.Field;
@@ -27,6 +28,7 @@ public interface BaseRequestInterface {
     String SECTION = "category/get-all";
     String CREATE_PRODUCT = "product/create";
     String  GET_SHOP = "shop/show";
+    String GET_PRODUCT = "show-products";
 
     @FormUrlEncoded
     @POST(LOGIN)
@@ -74,4 +76,10 @@ public interface BaseRequestInterface {
     @POST(GET_SHOP)
     Call<SectionsResponse> getShop(@Header(AUTHORIZATION) String token,
                                       @Field("shop_id") int shopId);
+
+    @FormUrlEncoded
+    @POST(GET_PRODUCT)
+    Call<ProductListResponse> getProducts(@Header(AUTHORIZATION) String token,
+                                          @Field("shop_id") int shopId,
+                                          @Field("category_id") int sectionId);
 }
