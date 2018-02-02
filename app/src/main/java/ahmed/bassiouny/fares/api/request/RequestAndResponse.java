@@ -159,7 +159,7 @@ public class RequestAndResponse {
             }
         });
     }
-    public static void getProduct(int shopId,int sectionId,final BaseResponseInterface<List<Product>> anInterface){
+    public static void getProducts(int shopId,int sectionId,final BaseResponseInterface<List<Product>> anInterface){
         Call<ProductListResponse> response = baseRequestInterface.getProducts(shopId,sectionId);
         response.enqueue(new Callback<ProductListResponse>() {
             @Override
@@ -170,6 +170,25 @@ public class RequestAndResponse {
 
             @Override
             public void onFailure(Call<ProductListResponse> call, Throwable t) {
+                anInterface.onFailed(errorConnection);
+            }
+        });
+    }
+    public static void updateProduct(Context context, Product product, final BaseResponseInterface<Product> anInterface){
+        Call<MyProductResponse> response = baseRequestInterface.updateProduct(
+                UserSharedPref.getTokenWithHeader(context)
+                ,product.getId(),product.getName()
+                ,product.getDescription(),product.getPrice(),product.getWholesalePrice()
+                ,product.getWholesaleCount(),product.getAvailablePieces(),product.getOrderReadyAt());
+        response.enqueue(new Callback<MyProductResponse>() {
+            @Override
+            public void onResponse(Call<MyProductResponse> call, Response<MyProductResponse> response) {
+                checkValidResult(response.code(),response.body().getStatus(),
+                        response.body().getProduct(),response.body().getMessage(),anInterface);
+            }
+
+            @Override
+            public void onFailure(Call<MyProductResponse> call, Throwable t) {
                 anInterface.onFailed(errorConnection);
             }
         });

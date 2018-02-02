@@ -45,7 +45,7 @@ public class MyProductActivity extends MyToolbar implements MyProductInterface {
         }
         final MyDialog dialog = new MyDialog();
         dialog.show(this);
-        RequestAndResponse.getProduct(shopId, sectionId, new BaseResponseInterface<List<Product>>() {
+        RequestAndResponse.getProducts(shopId, sectionId, new BaseResponseInterface<List<Product>>() {
             @Override
             public void onSuccess(List<Product> products) {
                 MyProductAdapter adapter = new MyProductAdapter(MyProductActivity.this,products);
@@ -71,14 +71,26 @@ public class MyProductActivity extends MyToolbar implements MyProductInterface {
     public void operationProduct(Product product, int operation) {
         switch (operation) {
             case VIEW:
-                Intent intent = new Intent(MyProductActivity.this,ShowProductActivity.class);
-                intent.putExtra(MyIntentKey.PRODUCT,product);
-                startActivity(intent);
+                Intent view = new Intent(MyProductActivity.this,ShowProductActivity.class);
+                view.putExtra(MyIntentKey.PRODUCT,product);
+                startActivity(view);
                 break;
             case EDIT:
+                Intent edit = new Intent(MyProductActivity.this,CreateProductActivity.class);
+                edit.putExtra(MyIntentKey.SHOP_ID, product.getShopId());
+                edit.putExtra(MyIntentKey.PRODUCT,product);
+                startActivityForResult(edit,1);
                 break;
             case DELETE:
                 break;
+        }
+    }
+
+    @Override
+    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
+        super.onActivityResult(requestCode, resultCode, data);
+        if(resultCode == RESULT_OK){
+            fetchData();
         }
     }
 }

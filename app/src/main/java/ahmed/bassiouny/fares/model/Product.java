@@ -119,6 +119,50 @@ public class Product implements Parcelable {
         return ownerId;
     }
 
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    public void setDescription(String description) {
+        this.description = description;
+    }
+
+    public void setPrice(String price) {
+        this.price = price;
+    }
+
+    public void setAvailablePieces(String availablePieces) {
+        this.availablePieces = availablePieces;
+    }
+
+    public void setWholesaleCount(String wholesaleCount) {
+        this.wholesaleCount = wholesaleCount;
+    }
+
+    public void setWholesalePrice(String wholesalePrice) {
+        this.wholesalePrice = wholesalePrice;
+    }
+
+    public void setOrderReadyAt(String orderReadyAt) {
+        this.orderReadyAt = orderReadyAt;
+    }
+
+    public void setImg_1(String img_1) {
+        this.img_1 = img_1;
+    }
+
+    public void setImg_2(String img_2) {
+        this.img_2 = img_2;
+    }
+
+    public void setImg_3(String img_3) {
+        this.img_3 = img_3;
+    }
+
+    public void setImg_4(String img_4) {
+        this.img_4 = img_4;
+    }
+
     @Override
     public int describeContents() {
         return 0;

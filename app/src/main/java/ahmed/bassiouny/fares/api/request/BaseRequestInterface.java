@@ -29,6 +29,7 @@ public interface BaseRequestInterface {
     String CREATE_PRODUCT = "product/create";
     String  GET_SHOP = "shop/show";
     String GET_PRODUCT = "product/show-products";
+    String UPDATE_PRODUCT = "product/update";
 
     @FormUrlEncoded
     @POST(LOGIN)
@@ -81,4 +82,17 @@ public interface BaseRequestInterface {
     @POST(GET_PRODUCT)
     Call<ProductListResponse> getProducts(@Field("shop_id") int shopId,
                                           @Field("category_id") int sectionId);
+
+
+    @FormUrlEncoded
+    @POST(CREATE_PRODUCT)
+    Call<MyProductResponse> updateProduct(@Header(AUTHORIZATION) String token,
+                                          @Field("product_id") int productId,
+                                          @Field("name") String name,
+                                          @Field("description") String decscription,
+                                          @Field("price") String price,
+                                          @Field("wholesale_price") String wholesalePrice,
+                                          @Field("wholesale_start_from") String wholesaleCount,
+                                          @Field("available_pieces") String availablePieces,
+                                          @Field("order_ready_at") String readyAt);
 }
