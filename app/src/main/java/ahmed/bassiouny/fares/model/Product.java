@@ -29,7 +29,7 @@ public class Product implements Parcelable {
     private String availablePieces;
     @SerializedName("wholesale_start_from")
     private String wholesaleCount;
-    @SerializedName("wholesalePrice")
+    @SerializedName("wholesale_price")
     private String wholesalePrice;
     @SerializedName("order_ready_at")
     private String orderReadyAt;

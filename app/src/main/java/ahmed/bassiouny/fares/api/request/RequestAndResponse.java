@@ -159,8 +159,8 @@ public class RequestAndResponse {
             }
         });
     }
-    public static void getProduct(Context context,int shopId,int sectionId,final BaseResponseInterface<List<Product>> anInterface){
-        Call<ProductListResponse> response = baseRequestInterface.getProducts(UserSharedPref.getTokenWithHeader(context),shopId,sectionId);
+    public static void getProduct(int shopId,int sectionId,final BaseResponseInterface<List<Product>> anInterface){
+        Call<ProductListResponse> response = baseRequestInterface.getProducts(shopId,sectionId);
         response.enqueue(new Callback<ProductListResponse>() {
             @Override
             public void onResponse(Call<ProductListResponse> call, Response<ProductListResponse> response) {

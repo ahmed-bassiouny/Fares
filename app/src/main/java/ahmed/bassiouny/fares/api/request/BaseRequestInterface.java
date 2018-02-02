@@ -28,7 +28,7 @@ public interface BaseRequestInterface {
     String SECTION = "category/get-all";
     String CREATE_PRODUCT = "product/create";
     String  GET_SHOP = "shop/show";
-    String GET_PRODUCT = "show-products";
+    String GET_PRODUCT = "product/show-products";
 
     @FormUrlEncoded
     @POST(LOGIN)
@@ -79,7 +79,6 @@ public interface BaseRequestInterface {
 
     @FormUrlEncoded
     @POST(GET_PRODUCT)
-    Call<ProductListResponse> getProducts(@Header(AUTHORIZATION) String token,
-                                          @Field("shop_id") int shopId,
+    Call<ProductListResponse> getProducts(@Field("shop_id") int shopId,
                                           @Field("category_id") int sectionId);
 }

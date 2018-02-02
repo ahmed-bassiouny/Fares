@@ -1,5 +1,6 @@
 package ahmed.bassiouny.fares.view.activities;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
@@ -39,7 +40,10 @@ public class MySectionsOfShopActivity extends MyToolbar implements ParseObject<S
 
     @Override
     public void parse(Section section) {
-
+        Intent intent = new Intent(MySectionsOfShopActivity.this,MyProductActivity.class);
+        intent.putExtra(MyIntentKey.SHOP_ID,shopId);
+        intent.putExtra(MyIntentKey.SECTION_ID,section.getId());
+        startActivity(intent);
     }
 
     private void fetchData() {
