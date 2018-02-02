@@ -3,6 +3,10 @@ package ahmed.bassiouny.fares.utils;
 import android.content.Context;
 import android.content.SharedPreferences;
 
+import com.google.gson.Gson;
+
+import ahmed.bassiouny.fares.model.Shop;
+
 /**
  * Created by bassiouny on 02/01/18.
  */
@@ -16,6 +20,7 @@ public class UserSharedPref {
     private final static String USER_HAS_SHOP = "has_shop";
     private final static String USER_ID = "user_id";
     private final static String IS_ONLINE = "is_online";
+    private final static String MY_SHOP = "my_shop";
 
     private static SharedPreferences sharedPref;
 
@@ -73,5 +78,19 @@ public class UserSharedPref {
     public static String getTokenWithHeader(Context context) {
         getSharedPref(context);
         return TOKEN_HEADER_KEY + sharedPref.getString(API_TOKEN, "");
+    }
+    public static void setMyShop(Context context, Shop shop){
+        getSharedPref(context);
+        SharedPreferences.Editor editor = sharedPref.edit();
+        Gson gson = new Gson();
+        String json = gson.toJson(shop);
+        editor.putString(MY_SHOP, json);
+        editor.apply();
+    }
+    public static Shop getMyShop(Context context) {
+        getSharedPref(context);
+        Gson gson = new Gson();
+        String json = sharedPref.getString(MY_SHOP, "");
+        return gson.fromJson(json, Shop.class);
     }
 }

@@ -17,14 +17,14 @@ import ahmed.bassiouny.fares.api.request.RequestAndResponse;
 import ahmed.bassiouny.fares.model.Shop;
 import ahmed.bassiouny.fares.utils.MyDialog;
 import ahmed.bassiouny.fares.utils.MyIntentKey;
-import ahmed.bassiouny.fares.view.activities.CreateShopActivity;
+import ahmed.bassiouny.fares.utils.UserSharedPref;
 
 /**
  * A simple {@link Fragment} subclass.
  */
 public class updateShopFragment extends Fragment {
 
-    private Shop shop;
+    private Shop myShop;
 
     private TextInputEditText etShopName;
     private TextInputEditText etShopDesc;
@@ -62,12 +62,13 @@ public class updateShopFragment extends Fragment {
                 } else {
                     final MyDialog dialog= new MyDialog();
                     dialog.show(getActivity());
-                    shop.setName(etShopName.getText().toString());
-                    shop.setDescription(etShopDesc.getText().toString());
-                    RequestAndResponse.updateMyShop(getContext(), shop, new BaseResponseInterface<Shop>() {
+                    myShop.setName(etShopName.getText().toString());
+                    myShop.setDescription(etShopDesc.getText().toString());
+                    RequestAndResponse.updateMyShop(getContext(), myShop, new BaseResponseInterface<Shop>() {
                         @Override
                         public void onSuccess(Shop shop) {
                             Toast.makeText(getContext(), getString(R.string.shop_updated), Toast.LENGTH_SHORT).show();
+                            UserSharedPref.setMyShop(getContext(),myShop);
                             getActivity().onBackPressed();
                             dialog.hide();
                         }
@@ -84,14 +85,14 @@ public class updateShopFragment extends Fragment {
     }
 
     private void getDataFromIntentAndSetData() {
-        shop = getArguments().getParcelable(MyIntentKey.SHOP);
-        if (shop == null) {
+        myShop = getArguments().getParcelable(MyIntentKey.SHOP);
+        if (myShop == null) {
             getActivity().onBackPressed();
             return;
         } else {
-            etShopName.setText(shop.getName());
-            etShopDesc.setText(shop.getDescription());
-            etPhone.setText(shop.getPhone());
+            etShopName.setText(myShop.getName());
+            etShopDesc.setText(myShop.getDescription());
+            etPhone.setText(myShop.getPhone());
         }
 
     }

@@ -18,9 +18,11 @@ import ahmed.bassiouny.fares.R;
 import ahmed.bassiouny.fares.api.config.BaseResponseInterface;
 import ahmed.bassiouny.fares.api.request.RequestAndResponse;
 import ahmed.bassiouny.fares.model.Shop;
+import ahmed.bassiouny.fares.model.User;
 import ahmed.bassiouny.fares.utils.MyDialog;
 import ahmed.bassiouny.fares.utils.MyHelper;
 import ahmed.bassiouny.fares.utils.MyIntentKey;
+import ahmed.bassiouny.fares.utils.UserSharedPref;
 import ahmed.bassiouny.fares.view.activities.CreateProductActivity;
 import ahmed.bassiouny.fares.view.activities.MySectionsOfShopActivity;
 
@@ -38,6 +40,7 @@ public class MyShopFragment extends Fragment {
     private TextView tvHint;
     private TextView tvViewproducts;
     private Shop shop;
+
     public MyShopFragment() {
         // Required empty public constructor
     }
@@ -72,37 +75,42 @@ public class MyShopFragment extends Fragment {
     @Override
     public void onStart() {
         super.onStart();
-        fetchData();
+        shop = UserSharedPref.getMyShop(getContext());
+        if (shop == null || shop.getId() == 0) {
+            fetchData();
+        }else {
+            setShopData();
+        }
     }
 
     private void onClick() {
         tvEditShop.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                if(shop == null)
+                if (shop == null)
                     return;
                 Bundle bundle = new Bundle();
-                bundle.putParcelable(MyIntentKey.SHOP,shop);
-                MyHelper.goToFragment(getActivity(),new updateShopFragment(),true,bundle);
+                bundle.putParcelable(MyIntentKey.SHOP, shop);
+                MyHelper.goToFragment(getActivity(), new updateShopFragment(), true, bundle);
             }
         });
         tvViewproducts.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                if(shop == null)
+                if (shop == null)
                     return;
-                Intent intent = new Intent(getContext(),MySectionsOfShopActivity.class);
-                intent.putExtra(MyIntentKey.SHOP_ID,shop.getId());
+                Intent intent = new Intent(getContext(), MySectionsOfShopActivity.class);
+                intent.putExtra(MyIntentKey.SHOP_ID, shop.getId());
                 startActivity(intent);
             }
         });
         tvAddProduct.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                if(shop == null)
+                if (shop == null)
                     return;
-                Intent intent = new Intent(getContext(),CreateProductActivity.class);
-                intent.putExtra(MyIntentKey.SHOP_ID,shop.getId());
+                Intent intent = new Intent(getContext(), CreateProductActivity.class);
+                intent.putExtra(MyIntentKey.SHOP_ID, shop.getId());
                 startActivity(intent);
 
             }
@@ -110,26 +118,15 @@ public class MyShopFragment extends Fragment {
     }
 
     private void fetchData() {
-        final MyDialog dialog= new MyDialog();
+        final MyDialog dialog = new MyDialog();
         dialog.show(getActivity());
         RequestAndResponse.getMyShop(getContext(), new BaseResponseInterface<List<Shop>>() {
             @Override
             public void onSuccess(List<Shop> shops) {
                 if (shops != null && shops.size() > 0) {
                     shop = shops.get(shops.size() - 1);
-                    tvShopName.setText(shop.getName());
-                    tvShopDesc.setText(shop.getDescription());
-                    tvPhone.setText(getString(R.string.phone)+" "+shop.getPhone());
-                    // todo load image
-                    if (shop.getName().isEmpty()) {
-                        tvHint.setVisibility(View.VISIBLE);
-                        tvAddProduct.setEnabled(false);
-                        tvViewproducts.setEnabled(false);
-                    } else {
-                        tvHint.setVisibility(View.INVISIBLE);
-                        tvAddProduct.setEnabled(true);
-                        tvViewproducts.setEnabled(true);
-                    }
+                    setShopData();
+                    UserSharedPref.setMyShop(getContext(),shop);
                     dialog.hide();
                 } else {
                     onFailed(getString(R.string.try_again));
@@ -146,5 +143,20 @@ public class MyShopFragment extends Fragment {
                 getActivity().onBackPressed();
             }
         });
+    }
+    private void setShopData(){
+        tvShopName.setText(shop.getName());
+        tvShopDesc.setText(shop.getDescription());
+        tvPhone.setText(getString(R.string.phone) + " " + shop.getPhone());
+        // todo load image
+        if (shop.getName().isEmpty()) {
+            tvHint.setVisibility(View.VISIBLE);
+            tvAddProduct.setEnabled(false);
+            tvViewproducts.setEnabled(false);
+        } else {
+            tvHint.setVisibility(View.INVISIBLE);
+            tvAddProduct.setEnabled(true);
+            tvViewproducts.setEnabled(true);
+        }
     }
 }
