@@ -193,5 +193,20 @@ public class RequestAndResponse {
             }
         });
     }
+    public static void getMyShops(Context context,final BaseResponseInterface<List<Shop>> anInterface){
+        Call<MyShopListResponse> response = baseRequestInterface.getMyShop(UserSharedPref.getTokenWithHeader(context));
+        response.enqueue(new Callback<MyShopListResponse>() {
+            @Override
+            public void onResponse(Call<MyShopListResponse> call, Response<MyShopListResponse> response) {
+                checkValidResult(response.code(),response.body().getStatus(),
+                        response.body().getShops(),response.body().getMessage(),anInterface);
+            }
+
+            @Override
+            public void onFailure(Call<MyShopListResponse> call, Throwable t) {
+                anInterface.onFailed(errorConnection);
+            }
+        });
+    }
 
 }
